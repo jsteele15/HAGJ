@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnsco05646th5"]
+
+[ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="1_5xd1t"]
+
+[node name="castro" type="Node2D"]
+
+[node name="castros_head" type="Sprite2D" parent="."]
+position = Vector2(201, 176)
+texture = ExtResource("1_5xd1t")

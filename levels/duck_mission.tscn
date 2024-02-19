@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xax48hj3biwh"]
+
+[ext_resource type="Script" path="res://levels/duck_mission.gd" id="1_e83kr"]
+
+[node name="duck_mission" type="Node2D"]
+script = ExtResource("1_e83kr")
+
+[node name="Camera2D" type="Camera2D" parent="."]
