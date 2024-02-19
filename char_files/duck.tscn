@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cojowxfjaym7m"]
+
+[ext_resource type="Texture2D" uid="uid://cc3f27yiu6u65" path="res://art/duck_temp.png" id="1_7ckcj"]
+
+[node name="duck" type="Node2D"]
+
+[node name="DuckTemp" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(2, 2)
+texture = ExtResource("1_7ckcj")
