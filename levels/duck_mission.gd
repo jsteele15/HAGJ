@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var game_vars = get_node("res://var_files/vars.gd")
+@onready var game_vars = get_node("/root/Vars")
 
 var duck_drop = false
 var fired = false
@@ -12,7 +12,7 @@ func _ready():
 
 
 func level_over():
-	print("winner")
+	game_vars.next_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -50,3 +50,4 @@ func _on_lv_timer_timeout():
 func _on_win_timer_timeout():
 	print("next level")
 	game_vars.score += 100 * game_vars.cur_level
+	level_over()

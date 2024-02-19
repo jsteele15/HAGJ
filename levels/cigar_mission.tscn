@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b78krultc6sts"]
+
+[ext_resource type="Script" path="res://levels/cigar_mission.gd" id="1_qmwmt"]
+[ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_wc4fy"]
+[ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="3_cc3vg"]
+
+[node name="cigar_mission" type="Node2D"]
+script = ExtResource("1_qmwmt")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(-178, 128)
+scale = Vector2(3, 3)
+texture = ExtResource("2_wc4fy")
+
+[node name="LeftHand" parent="." instance=ExtResource("3_cc3vg")]
+position = Vector2(384, 446)
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 5.949
+autostart = true
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="lose label" type="RichTextLabel" parent="."]
+offset_left = -414.0
+offset_top = 609.0
+offset_right = 422.0
+offset_bottom = 964.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Assassination: You scored X"
+
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
