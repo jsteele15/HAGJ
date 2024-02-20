@@ -10,19 +10,12 @@ script = ExtResource("1_qmwmt")
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Head" type="Sprite2D" parent="."]
-position = Vector2(-178, 128)
+position = Vector2(-362, 128)
 scale = Vector2(3, 3)
 texture = ExtResource("2_wc4fy")
 
 [node name="LeftHand" parent="." instance=ExtResource("3_cc3vg")]
-position = Vector2(384, 446)
-
-[node name="winTimer" type="Timer" parent="."]
-wait_time = 5.949
-autostart = true
-
-[node name="lvTimer" type="Timer" parent="."]
-wait_time = 3.0
+position = Vector2(343, 314)
 
 [node name="lose label" type="RichTextLabel" parent="."]
 offset_left = -414.0
@@ -32,5 +25,24 @@ offset_bottom = 964.0
 theme_override_font_sizes/normal_font_size = 100
 text = "Assassination: You scored X"
 
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 5.949
+autostart = true
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="bartime" type="Timer" parent="."]
+wait_time = 0.041
+autostart = true
+
+[node name="time_rect" type="ColorRect" parent="."]
+offset_left = -299.0
+offset_top = -461.0
+offset_right = 301.0
+offset_bottom = -421.0
+color = Color(0.643137, 0.176471, 0.215686, 1)
+
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
+[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

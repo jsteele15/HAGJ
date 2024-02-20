@@ -15,6 +15,16 @@ func next_level():
 	get_tree().change_scene_to_file(mission_list[cur_level])
 
 
+func lab_move(win_cond, label):
+	if win_cond == false:
+		if label.position.y > -20:
+			label.position.y -= 10
+			label.text = "Assassination: You scored " + str(score)
+
+func _input(event):
+	if event.is_action_pressed("exc"):
+		get_tree().quit()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

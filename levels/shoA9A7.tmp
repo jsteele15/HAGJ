@@ -51,4 +51,3 @@ text = "Assassination: You scored X"
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
-[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

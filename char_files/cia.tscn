@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://0ge0355cdx55"]
+
+[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="1_bm783"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6d5e6"]
+
+[node name="cia" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_6d5e6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bm783")
