@@ -6,15 +6,14 @@ var duck_drop = false
 var fired = false
 var win_cond;
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	game_vars.change_speed($lvTimer)
+	
 	$time_rect.position.y = get_viewport().size[1]/2-30
 	print(get_viewport().size[1])
-	(game_vars.score)
 
-
-func level_over():
-	game_vars.next_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,6 +21,8 @@ func _process(delta):
 	
 	if win_cond == false:
 		$castro.position.y += 10
+		$castro.rotation += 0.02
+		$blood_wall.emitting = true
 		
 	if duck_drop == false:
 		$duck.position.x = get_global_mouse_position()[0]
@@ -37,23 +38,20 @@ func _process(delta):
 			fired = true
 
 func _input(event):
-	if event.is_action_pressed("left_click") and win_cond != false:
+	if event.is_action_pressed("left_click") and win_cond == null:
 		$duck.visible= true
 		duck_drop = true#
 		win_cond = true
-		$lvTimer.stop()
-		$winTimer.start()
+		game_vars.change_score_and_timers($lvTimer, $winTimer, $score_board)
 		
 func _on_lv_timer_timeout():
 	win_cond = false
 	
 	
 func _on_win_timer_timeout():
-	print("next level")
-	game_vars.score += 100 * game_vars.cur_level
-	level_over()
+	game_vars.next_level()
 
 
 func _on_bartime_timeout():
 	if win_cond != true or false:
-		$time_rect.size.x -= 5
+		$time_rect.size.x -= game_vars.speed_times[game_vars.cur_speed]

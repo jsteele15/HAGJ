@@ -1,10 +1,62 @@
-[gd_scene format=3 uid="uid://ceacnoghjhaq6"]
+[gd_scene load_steps=8 format=3 uid="uid://ceacnoghjhaq6"]
+
+[ext_resource type="Script" path="res://levels/bay_pigs_mission.gd" id="1_0m4vv"]
+[ext_resource type="PackedScene" uid="uid://dy8thq0jlogci" path="res://char_files/ship.tscn" id="1_uv5nu"]
+[ext_resource type="PackedScene" uid="uid://cmdlmg4asngm" path="res://char_files/land.tscn" id="3_hxmu2"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_2q3sl"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="4_oflku"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_u6xds"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_qxlyo"]
 
 [node name="bay_pigs_mission" type="Node2D"]
+script = ExtResource("1_0m4vv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_right = 108.0
-offset_bottom = 47.0
-text = "level four"
+[node name="ship" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-84, 121)
+
+[node name="land" parent="." instance=ExtResource("3_hxmu2")]
+position = Vector2(830, 75)
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="bartime" type="Timer" parent="."]
+wait_time = 0.041
+autostart = true
+
+[node name="ship2" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-460, -119)
+
+[node name="ship3" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-486, 236)
+
+[node name="fire" parent="ship3" instance=ExtResource("4_oflku")]
+position = Vector2(2, 20)
+emitting = false
+
+[node name="time_rect" type="ColorRect" parent="."]
+offset_left = -299.0
+offset_top = -461.0
+offset_right = 301.0
+offset_bottom = -421.0
+color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_2q3sl")]
+position = Vector2(1, -266)
+tx = 4
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("5_u6xds")]
+position = Vector2(0, -400)
+
+[node name="lose label" parent="." instance=ExtResource("6_qxlyo")]
+position = Vector2(0, 820)
+
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

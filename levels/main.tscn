@@ -1,3 +1,57 @@
-[gd_scene format=3 uid="uid://bvsx2ln3uom0x"]
+[gd_scene load_steps=6 format=3 uid="uid://bvsx2ln3uom0x"]
+
+[ext_resource type="Script" path="res://levels/main.gd" id="1_3clm8"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="1_8qq4g"]
+[ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="3_5qoun"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_adto4"]
+size = Vector2(1069, 205)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_30d1m"]
+size = Vector2(1068, 194)
 
 [node name="main" type="Node2D"]
+script = ExtResource("1_3clm8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="TextSheet" type="Sprite2D" parent="."]
+position = Vector2(0, -205)
+texture = ExtResource("1_8qq4g")
+hframes = 10
+
+[node name="TextSheet2" type="Sprite2D" parent="."]
+position = Vector2(0, 32)
+texture = ExtResource("1_8qq4g")
+hframes = 10
+
+[node name="MenuButtonsSheet" type="Sprite2D" parent="."]
+position = Vector2(0, -207)
+texture = ExtResource("3_5qoun")
+hframes = 10
+frame = 1
+
+[node name="Area2Dstart" type="Area2D" parent="MenuButtonsSheet"]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButtonsSheet/Area2Dstart"]
+position = Vector2(1.5, -3.5)
+shape = SubResource("RectangleShape2D_adto4")
+
+[node name="MenuButtonsSheet2" type="Sprite2D" parent="."]
+position = Vector2(4, 32)
+texture = ExtResource("3_5qoun")
+hframes = 10
+frame = 3
+
+[node name="Area2Dexit" type="Area2D" parent="MenuButtonsSheet2"]
+position = Vector2(0, 239)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButtonsSheet2/Area2Dexit"]
+position = Vector2(7, -242)
+shape = SubResource("RectangleShape2D_30d1m")
+
+[connection signal="mouse_entered" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_exited"]
+[connection signal="mouse_entered" from="MenuButtonsSheet2/Area2Dexit" to="." method="_on_area_2_dexit_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtonsSheet2/Area2Dexit" to="." method="_on_area_2_dexit_mouse_exited"]

@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=3 uid="uid://ch5nlvslekskw"]
+
+[ext_resource type="PackedScene" uid="uid://jlnmshhagf0v" path="res://char_files/piano.tscn" id="1_lsy81"]
+[ext_resource type="Script" path="res://levels/piano_mission.gd" id="1_ptlm5"]
+[ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="2_17xij"]
+[ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="3_o1oym"]
+[ext_resource type="PackedScene" uid="uid://b8ofmiyv57c8" path="res://char_files/hook.tscn" id="5_qck2f"]
+
+[node name="piano_mission" type="Node2D"]
+script = ExtResource("1_ptlm5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="piano" parent="." instance=ExtResource("1_lsy81")]
+position = Vector2(-285, -193)
+
+[node name="cia" parent="." instance=ExtResource("2_17xij")]
+position = Vector2(423, 254)
+
+[node name="castro" parent="." instance=ExtResource("3_o1oym")]
+position = Vector2(-292, 233)
+
+[node name="castro_rope" type="Line2D" parent="."]
+points = PackedVector2Array(-304, -449, -303, -184)
+default_color = Color(0.298039, 0.470588, 0.282353, 1)
+
+[node name="hook" parent="." instance=ExtResource("5_qck2f")]
+position = Vector2(-287, -458)
+
+[node name="top_rope" type="Line2D" parent="."]
+points = PackedVector2Array(296, -449, -310, -453)
+default_color = Color(0.717647, 0.611765, 0.372549, 1)
+
+[node name="hook2" parent="." instance=ExtResource("5_qck2f")]
+position = Vector2(296, -454)
+
+[node name="cia_rope" type="Line2D" parent="."]
+points = PackedVector2Array(294, 263, 293, -453)
+default_color = Color(0.384314, 0.254902, 0.0901961, 1)
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="lose label" type="RichTextLabel" parent="."]
+offset_left = -414.0
+offset_top = 609.0
+offset_right = 422.0
+offset_bottom = 964.0
+theme_override_font_sizes/normal_font_size = 100
+text = "Assassination: You scored X"
+
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

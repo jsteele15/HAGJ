@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://b625j38ldufmr"]
+[gd_scene load_steps=10 format=3 uid="uid://b625j38ldufmr"]
 
 [ext_resource type="Script" path="res://levels/shots_mission.gd" id="1_s7t36"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_vyrus"]
 [ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="3_o66kv"]
 [ext_resource type="PackedScene" uid="uid://cl6mgux20a7xj" path="res://char_files/beer.tscn" id="4_g4vi1"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="5_62plf"]
+[ext_resource type="PackedScene" uid="uid://c38ysxegh7gfe" path="res://char_files/poison.tscn" id="5_txsal"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="6_csav2"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="7_dqv13"]
+[ext_resource type="Texture2D" uid="uid://ds111j78mjxj7" path="res://art/beer.png" id="9_302cf"]
 
 [node name="shots_mission" type="Node2D"]
 script = ExtResource("1_s7t36")
@@ -25,29 +30,68 @@ color = Color(0.643137, 0.176471, 0.215686, 1)
 position = Vector2(165, -142)
 
 [node name="beer" parent="." instance=ExtResource("4_g4vi1")]
-position = Vector2(-178, 84)
+position = Vector2(-177, 83)
+
+[node name="poison55" parent="beer" instance=ExtResource("5_txsal")]
+position = Vector2(-50, -89)
+
+[node name="poison" parent="beer/poison55" instance=ExtResource("5_txsal")]
+position = Vector2(10, 3)
+
+[node name="poison2" parent="beer/poison55/poison" instance=ExtResource("5_txsal")]
+position = Vector2(9, 0)
+
+[node name="poison4" parent="beer/poison55/poison/poison2" instance=ExtResource("5_txsal")]
+position = Vector2(23, -1)
+
+[node name="poison5" parent="beer/poison55/poison/poison2/poison4" instance=ExtResource("5_txsal")]
+position = Vector2(11, 0)
+
+[node name="poison6" parent="beer/poison55/poison/poison2/poison4/poison5" instance=ExtResource("5_txsal")]
+position = Vector2(10, 0)
+
+[node name="poison7" parent="beer/poison55/poison/poison2/poison4/poison5/poison6" instance=ExtResource("5_txsal")]
+position = Vector2(10, -1)
+
+[node name="poison8" parent="beer/poison55/poison/poison2/poison4/poison5/poison6/poison7" instance=ExtResource("5_txsal")]
+position = Vector2(11, 0)
+
+[node name="poison3" parent="beer/poison55/poison/poison2/poison4/poison5/poison6/poison7/poison8" instance=ExtResource("5_txsal")]
+position = Vector2(-54, 1)
+
+[node name="poison9" parent="beer/poison55/poison/poison2/poison4/poison5/poison6/poison7/poison8" instance=ExtResource("5_txsal")]
+position = Vector2(10, -1)
+
+[node name="poison10" parent="beer/poison55/poison/poison2/poison4/poison5/poison6/poison7/poison8/poison9" instance=ExtResource("5_txsal")]
+position = Vector2(10, 0)
 
 [node name="beer2" parent="." instance=ExtResource("4_g4vi1")]
 position = Vector2(175, 82)
 
 [node name="winTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 2.0
 
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
-autostart = true
 
 [node name="bartime" type="Timer" parent="."]
 wait_time = 0.041
 autostart = true
 
-[node name="lose label" type="RichTextLabel" parent="."]
-offset_left = -414.0
-offset_top = 609.0
-offset_right = 422.0
-offset_bottom = 964.0
-theme_override_font_sizes/normal_font_size = 100
-text = "Assassination: You scored X"
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_62plf")]
+position = Vector2(4, 311)
+tx = 3
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("6_csav2")]
+position = Vector2(0, -400)
+
+[node name="Beerim" type="Sprite2D" parent="."]
+position = Vector2(-177, 82)
+texture = ExtResource("9_302cf")
+
+[node name="lose label" parent="." instance=ExtResource("7_dqv13")]
+position = Vector2(0, 820)
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

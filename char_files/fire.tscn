@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ohddgv0py3sg"]
+
+[ext_resource type="Material" uid="uid://ceal23y6cfgpi" path="res://char_files/fire.tres" id="1_d3cov"]
+
+[node name="fire" type="GPUParticles2D"]
+scale = Vector2(10, 10)
+amount = 50
+process_material = ExtResource("1_d3cov")

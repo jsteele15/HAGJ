@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://f7lcieg80ccc"]
+
+[ext_resource type="Script" path="res://levels/lose_label.gd" id="1_gb31a"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="1_jp6ot"]
+[ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="2_l2lgx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_228jq"]
+size = Vector2(1067, 206)
+
+[node name="lose label" type="Node2D"]
+script = ExtResource("1_gb31a")
+
+[node name="back" type="Sprite2D" parent="."]
+position = Vector2(0, -161.5)
+scale = Vector2(1, 1.565)
+texture = ExtResource("1_jp6ot")
+hframes = 10
+
+[node name="fidel" type="Sprite2D" parent="."]
+position = Vector2(0, -231)
+scale = Vector2(1.02222, 1)
+texture = ExtResource("2_l2lgx")
+hframes = 10
+frame = 9
+
+[node name="ass" type="Sprite2D" parent="."]
+position = Vector2(0, -101)
+texture = ExtResource("2_l2lgx")
+hframes = 10
+frame = 7
+
+[node name="back2" type="Sprite2D" parent="."]
+position = Vector2(0, 210)
+texture = ExtResource("1_jp6ot")
+hframes = 10
+
+[node name="rest" type="Sprite2D" parent="."]
+position = Vector2(2, 207)
+texture = ExtResource("2_l2lgx")
+hframes = 10
+frame = 5
+
+[node name="Area2D" type="Area2D" parent="rest"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rest/Area2D"]
+position = Vector2(3.5, 0)
+shape = SubResource("RectangleShape2D_228jq")
+
+[connection signal="mouse_entered" from="rest/Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="rest/Area2D" to="." method="_on_area_2d_mouse_exited"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwn0od8c4ie8j"]
+
+[ext_resource type="Script" path="res://score_board.gd" id="1_x4uwv"]
+[ext_resource type="Texture2D" uid="uid://ba8jqce7h5ur" path="res://art/num.png" id="2_h20me"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="3_dpomd"]
+
+[node name="score_board" type="Node2D"]
+script = ExtResource("1_x4uwv")
+
+[node name="back" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(215, 1.5)
+scale = Vector2(0.647273, 0.655)
+texture = ExtResource("3_dpomd")
+hframes = 10
+
+[node name="Num" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num3" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num4" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num5" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1, 1)
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num6" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_h20me")
+hframes = 10
+
+[node name="Num7" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(2, 2)
+texture = ExtResource("2_h20me")
+hframes = 10

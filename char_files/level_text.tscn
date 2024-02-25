@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbgmj1b2oipyq"]
+
+[ext_resource type="Script" path="res://level_text.gd" id="1_twn0r"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="2_whxlf"]
+
+[node name="level_text" type="Node2D"]
+script = ExtResource("1_twn0r")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_whxlf")
+hframes = 10

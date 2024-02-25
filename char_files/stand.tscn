@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbsdxsqosmq35"]
+
+[ext_resource type="Script" path="res://stand.gd" id="1_jbnyu"]
+[ext_resource type="Texture2D" uid="uid://5tq6cks8evbt" path="res://art/stand.png" id="2_2qfp1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dd8f2"]
+radius = 40.3113
+
+[node name="stand" type="Node2D"]
+script = ExtResource("1_jbnyu")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_dd8f2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2qfp1")
+
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

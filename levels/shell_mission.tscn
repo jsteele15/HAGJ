@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cj6xlm2qemvp"]
+
+[ext_resource type="Script" path="res://levels/shell_mission.gd" id="1_11t6l"]
+[ext_resource type="PackedScene" uid="uid://cjwrtkainyn" path="res://char_files/shells.tscn" id="1_s104t"]
+[ext_resource type="PackedScene" uid="uid://bca7mxrdbsnb4" path="res://char_files/bomb.tscn" id="2_w4he8"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="3_eyvk3"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_3nslb"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_dlavy"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_kkxpn"]
+
+[node name="shell_mission" type="Node2D"]
+script = ExtResource("1_11t6l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="bomb" parent="." instance=ExtResource("2_w4he8")]
+position = Vector2(-360, -347)
+
+[node name="fire" parent="bomb" instance=ExtResource("3_eyvk3")]
+position = Vector2(17, -35)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 119.0
+offset_bottom = 40.0
+text = "level 9"
+
+[node name="shells" parent="." instance=ExtResource("1_s104t")]
+position = Vector2(-341, 270)
+
+[node name="shells2" parent="." instance=ExtResource("1_s104t")]
+position = Vector2(303, 279)
+ind = 1
+
+[node name="shells3" parent="." instance=ExtResource("1_s104t")]
+position = Vector2(226, -304)
+ind = 2
+
+[node name="shells4" parent="." instance=ExtResource("1_s104t")]
+position = Vector2(-443, -255)
+ind = 3
+explosive = 1
+
+[node name="time_rect" type="ColorRect" parent="."]
+offset_left = -299.0
+offset_top = -461.0
+offset_right = 301.0
+offset_bottom = -421.0
+color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="bartime" type="Timer" parent="."]
+wait_time = 0.041
+autostart = true
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_3nslb")]
+position = Vector2(3, -4)
+tx = 8
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("5_dlavy")]
+position = Vector2(0, -400)
+
+[node name="lose label" parent="." instance=ExtResource("6_kkxpn")]
+position = Vector2(0, 820)
+
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

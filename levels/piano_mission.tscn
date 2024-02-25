@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://ch5nlvslekskw"]
+
+[ext_resource type="PackedScene" uid="uid://jlnmshhagf0v" path="res://char_files/piano.tscn" id="1_lsy81"]
+[ext_resource type="Script" path="res://levels/piano_mission.gd" id="1_ptlm5"]
+[ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="2_17xij"]
+[ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="3_o1oym"]
+[ext_resource type="PackedScene" uid="uid://b8ofmiyv57c8" path="res://char_files/hook.tscn" id="5_qck2f"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="6_b8wt1"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="7_vrqh7"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="8_cj36d"]
+[ext_resource type="PackedScene" uid="uid://b3ynhnjgf0guc" path="res://char_files/blood_floor.tscn" id="9_faf0s"]
+
+[node name="piano_mission" type="Node2D"]
+script = ExtResource("1_ptlm5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="castro" parent="." instance=ExtResource("3_o1oym")]
+position = Vector2(-377, 191)
+
+[node name="cia" parent="." instance=ExtResource("2_17xij")]
+position = Vector2(416, 178)
+
+[node name="piano" parent="." instance=ExtResource("1_lsy81")]
+position = Vector2(-285, -193)
+
+[node name="castro_rope" type="Line2D" parent="."]
+points = PackedVector2Array(-304, -449, -303, -184)
+default_color = Color(0.298039, 0.470588, 0.282353, 1)
+
+[node name="hook" parent="." instance=ExtResource("5_qck2f")]
+position = Vector2(-287, -458)
+
+[node name="top_rope" type="Line2D" parent="."]
+points = PackedVector2Array(296, -449, -310, -453)
+default_color = Color(0.717647, 0.611765, 0.372549, 1)
+
+[node name="hook2" parent="." instance=ExtResource("5_qck2f")]
+position = Vector2(296, -454)
+
+[node name="cia_rope" type="Line2D" parent="."]
+points = PackedVector2Array(294, 263, 293, -453)
+default_color = Color(0.384314, 0.254902, 0.0901961, 1)
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="bartime" type="Timer" parent="."]
+wait_time = 0.041
+autostart = true
+
+[node name="time_rect" type="ColorRect" parent="."]
+offset_left = -299.0
+offset_top = -461.0
+offset_right = 301.0
+offset_bottom = -421.0
+color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("6_b8wt1")]
+position = Vector2(7, 367)
+tx = 5
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("7_vrqh7")]
+position = Vector2(0, -400)
+
+[node name="blood_floor" parent="." instance=ExtResource("9_faf0s")]
+position = Vector2(-357, 286)
+
+[node name="lose label" parent="." instance=ExtResource("8_cj36d")]
+position = Vector2(0, 820)
+
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

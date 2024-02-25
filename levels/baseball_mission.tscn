@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://cmpugly5pj8p3"]
+
+[ext_resource type="Script" path="res://levels/baseball_mission.gd" id="1_dwibi"]
+[ext_resource type="PackedScene" uid="uid://bb864tmyeral1" path="res://char_files/shoe.tscn" id="2_pvfqq"]
+[ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="3_xsb0q"]
+[ext_resource type="PackedScene" uid="uid://bca7mxrdbsnb4" path="res://char_files/bomb.tscn" id="4_3ixdq"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="5_2e5gi"]
+[ext_resource type="Texture2D" uid="uid://bcm5dawqetxde" path="res://art/base.png" id="5_4pt1l"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="6_dmgbq"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="7_msr0b"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="8_g5inh"]
+
+[node name="baseball_mission" type="Node2D"]
+script = ExtResource("1_dwibi")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="shoe" parent="." instance=ExtResource("2_pvfqq")]
+position = Vector2(-150, -133)
+
+[node name="shoe2" parent="." instance=ExtResource("2_pvfqq")]
+position = Vector2(144, -124)
+
+[node name="castro" parent="." instance=ExtResource("3_xsb0q")]
+visible = false
+position = Vector2(-639, -147)
+
+[node name="bomb" parent="." instance=ExtResource("4_3ixdq")]
+visible = false
+position = Vector2(552, 173)
+
+[node name="fire" parent="bomb" instance=ExtResource("5_2e5gi")]
+position = Vector2(20, -33)
+
+[node name="Base" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-624, 186)
+texture = ExtResource("5_4pt1l")
+
+[node name="Base2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(536, 170)
+texture = ExtResource("5_4pt1l")
+
+[node name="time_rect" type="ColorRect" parent="."]
+offset_left = -299.0
+offset_top = -461.0
+offset_right = 301.0
+offset_bottom = -421.0
+color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="lvTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="winTimer" type="Timer" parent="."]
+wait_time = 2.0
+
+[node name="bartime" type="Timer" parent="."]
+wait_time = 0.041
+autostart = true
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("6_dmgbq")]
+position = Vector2(6, 167)
+tx = 9
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("7_msr0b")]
+position = Vector2(0, -400)
+
+[node name="lose label" parent="." instance=ExtResource("8_g5inh")]
+position = Vector2(0, 820)
+
+[connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
+[connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
+[connection signal="timeout" from="bartime" to="." method="_on_bartime_timeout"]

@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://b78krultc6sts"]
+[gd_scene load_steps=8 format=3 uid="uid://b78krultc6sts"]
 
 [ext_resource type="Script" path="res://levels/cigar_mission.gd" id="1_qmwmt"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_wc4fy"]
 [ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="3_cc3vg"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_qvsh5"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="4_sqp8h"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_hjgw6"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_t52dy"]
 
 [node name="cigar_mission" type="Node2D"]
 script = ExtResource("1_qmwmt")
@@ -17,20 +21,20 @@ texture = ExtResource("2_wc4fy")
 [node name="LeftHand" parent="." instance=ExtResource("3_cc3vg")]
 position = Vector2(343, 314)
 
-[node name="lose label" type="RichTextLabel" parent="."]
-offset_left = -414.0
-offset_top = 609.0
-offset_right = 422.0
-offset_bottom = 964.0
-theme_override_font_sizes/normal_font_size = 100
-text = "Assassination: You scored X"
+[node name="Line2D" type="Line2D" parent="LeftHand"]
+position = Vector2(-7, 13)
+points = PackedVector2Array(103, -199, 102, -209, 97, -214, 91, -216)
+width = 5.0
+default_color = Color(0.14902, 0.14902, 0.14902, 0.898039)
+
+[node name="fire" parent="LeftHand" instance=ExtResource("4_sqp8h")]
+position = Vector2(85, -203)
 
 [node name="winTimer" type="Timer" parent="."]
-wait_time = 5.949
-autostart = true
+wait_time = 2.0
 
 [node name="lvTimer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 4.527
 
 [node name="bartime" type="Timer" parent="."]
 wait_time = 0.041
@@ -42,6 +46,17 @@ offset_top = -461.0
 offset_right = 301.0
 offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_qvsh5")]
+position = Vector2(2, -289)
+tx = 2
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("5_hjgw6")]
+position = Vector2(0, -400)
+
+[node name="lose label" parent="." instance=ExtResource("6_t52dy")]
+position = Vector2(0, 820)
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

@@ -5,5 +5,4 @@
 [node name="castro" type="Node2D"]
 
 [node name="castros_head" type="Sprite2D" parent="."]
-position = Vector2(201, 176)
 texture = ExtResource("1_5xd1t")

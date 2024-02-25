@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0u5an3qgiyxm"]
+
+[ext_resource type="Script" path="res://levels/speeding_up.gd" id="1_4np07"]
+
+[node name="speeding_up" type="Node2D"]
+script = ExtResource("1_4np07")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -157.0
+offset_top = -59.0
+offset_right = 207.0
+offset_bottom = 43.0
+text = "speeding up, are you ready?"

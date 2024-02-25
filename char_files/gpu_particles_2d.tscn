@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3ct1l5pwk5f4"]
+
+[ext_resource type="Material" uid="uid://dsc43rmduf6fl" path="res://char_files/blood_floor.tres" id="1_8afbm"]
+
+[node name="blood_floor" type="GPUParticles2D"]
+emitting = false
+amount = 200
+process_material = ExtResource("1_8afbm")
+explosiveness = 1.0

@@ -1,35 +1,33 @@
-[gd_scene load_steps=4 format=3 uid="uid://xax48hj3biwh"]
+[gd_scene load_steps=8 format=3 uid="uid://xax48hj3biwh"]
 
 [ext_resource type="Script" path="res://levels/duck_mission.gd" id="1_e83kr"]
 [ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="2_311nx"]
+[ext_resource type="PackedScene" uid="uid://b8q37dym60h3y" path="res://char_files/blood_wall.tscn" id="2_y5skw"]
 [ext_resource type="PackedScene" uid="uid://cojowxfjaym7m" path="res://char_files/duck.tscn" id="3_7408n"]
+[ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_i5kh6"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_q0kvg"]
+[ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_m2638"]
 
 [node name="duck_mission" type="Node2D"]
 script = ExtResource("1_e83kr")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="blood_wall" parent="." instance=ExtResource("2_y5skw")]
+position = Vector2(-7, -173)
+
 [node name="castro" parent="." instance=ExtResource("2_311nx")]
-position = Vector2(-198, -317)
+position = Vector2(-1, -161)
 
 [node name="duck" parent="." instance=ExtResource("3_7408n")]
 visible = false
 
-[node name="lose label" type="RichTextLabel" parent="."]
-offset_left = -414.0
-offset_top = 609.0
-offset_right = 422.0
-offset_bottom = 964.0
-theme_override_font_sizes/normal_font_size = 100
-text = "Assassination: You scored X"
-
 [node name="winTimer" type="Timer" parent="."]
-wait_time = 3.942
+wait_time = 2.0
 
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
-autostart = true
 
 [node name="bartime" type="Timer" parent="."]
 wait_time = 0.041
@@ -41,6 +39,17 @@ offset_top = -461.0
 offset_right = 301.0
 offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
+
+[node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_i5kh6")]
+position = Vector2(-2, 145)
+tx = 1
+level = NodePath("..")
+
+[node name="score_board" parent="." instance=ExtResource("5_q0kvg")]
+position = Vector2(0, -400)
+
+[node name="lose label" parent="." instance=ExtResource("6_m2638")]
+position = Vector2(0, 820)
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
