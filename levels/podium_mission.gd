@@ -4,6 +4,7 @@ extends Node2D
 
 var win_cond;
 var fired;
+var fired_music
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_vars.change_speed($lvTimer)
@@ -26,6 +27,20 @@ func _process(delta):
 	if win_cond == true and fired != true:
 		game_vars.change_score_and_timers($lvTimer, $winTimer, $score_board)
 		fired = true
+	
+	if win_cond == false:
+		game_vars.music_player.turn_down()
+		$castro.position.y -= 10
+		$castro.position.x += 10
+		$castro.rotation += 0.04
+		if fired_music == null:
+			$podium.visible = false
+			$fire.emitting = false
+			$AudioStreamPlayer2D.play()
+			$explosion.emitting = true
+			fired_music = true
+	
+	
 	
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:

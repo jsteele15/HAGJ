@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b625j38ldufmr"]
+[gd_scene load_steps=11 format=3 uid="uid://b625j38ldufmr"]
 
 [ext_resource type="Script" path="res://levels/shots_mission.gd" id="1_s7t36"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_vyrus"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="5_62plf"]
 [ext_resource type="PackedScene" uid="uid://c38ysxegh7gfe" path="res://char_files/poison.tscn" id="5_txsal"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="6_csav2"]
+[ext_resource type="AudioStream" uid="uid://b8qb5nowerux1" path="res://sounds/spill.wav" id="6_fehl8"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="7_dqv13"]
 [ext_resource type="Texture2D" uid="uid://ds111j78mjxj7" path="res://art/beer.png" id="9_302cf"]
 
@@ -67,6 +68,10 @@ position = Vector2(10, 0)
 
 [node name="beer2" parent="." instance=ExtResource("4_g4vi1")]
 position = Vector2(175, 82)
+
+[node name="spill_sound" type="AudioStreamPlayer2D" parent="beer2"]
+position = Vector2(-175, -82)
+stream = ExtResource("6_fehl8")
 
 [node name="winTimer" type="Timer" parent="."]
 wait_time = 2.0

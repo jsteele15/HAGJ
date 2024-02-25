@@ -14,6 +14,7 @@ func _process(delta):
 func _input(event):
 	if event.is_action_pressed("left_click"):
 		if entered == true:
+			game_vars.music_player.return_vol()
 			game_vars.reset()
 			game_vars.next_level()
 

@@ -27,6 +27,9 @@ func _process(delta):
 		win_cond = true
 		game_vars.change_score_and_timers($lvTimer, $winTimer, $score_board)
 		fired = true
+	
+	if win_cond == false:
+		game_vars.music_player.turn_down()
 		
 	
 func _input(event):
@@ -37,7 +40,7 @@ func _input(event):
 				print("hfudisf")
 				dead_ships += 1
 				s.alive = false
-				s/fire.emitting = true
+				
 
 
 ###when the lv timer times out, it starts automatically, the level ends in failure

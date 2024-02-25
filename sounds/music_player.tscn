@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx3d3jlj8bsh5"]
+
+[ext_resource type="Script" path="res://Node.gd" id="1_orsr7"]
+[ext_resource type="AudioStream" uid="uid://smlsgxwputhe" path="res://sounds/salsa.wav" id="2_8yyq4"]
+
+[node name="Music_player" type="Node"]
+script = ExtResource("1_orsr7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_8yyq4")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.68
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

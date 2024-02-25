@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cxrbcscsvnx7v"]
+[gd_scene load_steps=11 format=3 uid="uid://cxrbcscsvnx7v"]
 
 [ext_resource type="PackedScene" uid="uid://dbsdxsqosmq35" path="res://char_files/stand.tscn" id="1_61bui"]
 [ext_resource type="Script" path="res://levels/paint_wall_mission.gd" id="1_hsgk6"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="5_do5sb"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="6_ykyyb"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="7_ag8a7"]
+[ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="7_wroqc"]
+[ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="8_0nvwx"]
+[ext_resource type="PackedScene" uid="uid://b8q37dym60h3y" path="res://char_files/blood_wall.tscn" id="9_s60h3"]
 
 [node name="paint_wall_mission" type="Node2D"]
 script = ExtResource("1_hsgk6")
@@ -68,8 +71,17 @@ level = NodePath("..")
 [node name="score_board" parent="." instance=ExtResource("6_ykyyb")]
 position = Vector2(0, -400)
 
+[node name="cia" parent="." instance=ExtResource("7_wroqc")]
+position = Vector2(1608, 181)
+
 [node name="lose label" parent="." instance=ExtResource("7_ag8a7")]
 position = Vector2(0, 820)
+
+[node name="explosion" parent="." instance=ExtResource("8_0nvwx")]
+position = Vector2(2, 172)
+
+[node name="blood_wall" parent="." instance=ExtResource("9_s60h3")]
+position = Vector2(-8, 174)
 
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

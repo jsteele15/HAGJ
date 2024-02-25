@@ -1,5 +1,7 @@
 extends Node
 
+@onready var music_player = get_node("/root/MusicPlayer")
+
 var mission_list = ["res://levels/duck_mission.tscn",
 	"res://levels/cigar_mission.tscn",
 	"res://levels/shots_mission.tscn",
@@ -52,8 +54,9 @@ func rand_num_gen():
 	random.randomize()
 	n = random.randi_range(0, len(mission_list)-1)
 	if n == saved:
-		rand_num_gen()
+		return rand_num_gen()
 	else:
+		saved = n
 		return n
 	
 func next_level():
@@ -73,7 +76,7 @@ func next_level():
 func lab_move(win_cond, label):
 	if win_cond == false:
 		if label.position.y > -20:
-			label.position.y -= 10
+			label.position.y -= 5
 			
 
 func _input(event):

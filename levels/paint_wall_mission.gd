@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var game_vars = get_node("/root/Vars")
 
+
 var win_cond;
 var num_dest = 0;
 var fired;
@@ -32,6 +33,20 @@ func _process(delta):
 		
 	if win_cond == true:
 		$castro.position.x -= 10
+		if $cia.position.x > 0:
+			$cia.position.x -= 10
+		else:
+			$cia.visible = false
+			$blood_wall.emitting = true
+	
+	if win_cond == false:
+		if $castro.position.x > 0:
+			$castro.position.x -= 30
+		else:
+			$castro.visible = false
+			$blood_wall.emitting = true
+		game_vars.music_player.turn_down()
+
 		
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:

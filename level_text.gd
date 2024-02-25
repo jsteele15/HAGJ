@@ -10,8 +10,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if level.win_cond != null:
-		$".".position.x -= 20
-		$".".position.y += 10
+		#$".".position.x -= 20
+		$".".position.y -= 10
 		$".".scale.x -= 0.02
 		$".".scale.y -= 0.02
 		

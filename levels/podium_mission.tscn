@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://dob0vl0e6olcv"]
+[gd_scene load_steps=10 format=3 uid="uid://dob0vl0e6olcv"]
 
 [ext_resource type="Script" path="res://levels/podium_mission.gd" id="1_10x4y"]
 [ext_resource type="PackedScene" uid="uid://k8v1fhmmn7em" path="res://char_files/podium.tscn" id="1_x7wjk"]
 [ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="2_pp58j"]
+[ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="3_u4ja8"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_c83gf"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_kmot3"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_hw522"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="7_4kw1y"]
+[ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="9_vwuba"]
 
 [node name="podium_mission" type="Node2D"]
 script = ExtResource("1_10x4y")
@@ -36,6 +38,9 @@ offset_right = 301.0
 offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
+[node name="fire" parent="." instance=ExtResource("7_4kw1y")]
+position = Vector2(21, 2)
+
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_c83gf")]
 position = Vector2(-1, 275)
 tx = 7
@@ -44,11 +49,16 @@ level = NodePath("..")
 [node name="score_board" parent="." instance=ExtResource("5_kmot3")]
 position = Vector2(0, -400)
 
-[node name="fire" parent="." instance=ExtResource("7_4kw1y")]
-position = Vector2(21, 2)
-
 [node name="lose label" parent="." instance=ExtResource("6_hw522")]
 position = Vector2(0, 820)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(0, -81)
+stream = ExtResource("3_u4ja8")
+volume_db = 0.1
+
+[node name="explosion" parent="." instance=ExtResource("9_vwuba")]
+position = Vector2(5, 16)
 
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

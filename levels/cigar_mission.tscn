@@ -1,12 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://b78krultc6sts"]
+[gd_scene load_steps=10 format=3 uid="uid://b78krultc6sts"]
 
 [ext_resource type="Script" path="res://levels/cigar_mission.gd" id="1_qmwmt"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_wc4fy"]
 [ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="3_cc3vg"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_qvsh5"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="4_sqp8h"]
+[ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="5_dw7fl"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_hjgw6"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_t52dy"]
+[ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="9_4y5jl"]
 
 [node name="cigar_mission" type="Node2D"]
 script = ExtResource("1_qmwmt")
@@ -29,6 +31,10 @@ default_color = Color(0.14902, 0.14902, 0.14902, 0.898039)
 
 [node name="fire" parent="LeftHand" instance=ExtResource("4_sqp8h")]
 position = Vector2(85, -203)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="LeftHand"]
+stream = ExtResource("5_dw7fl")
+volume_db = 0.1
 
 [node name="winTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -57,6 +63,9 @@ position = Vector2(0, -400)
 
 [node name="lose label" parent="." instance=ExtResource("6_t52dy")]
 position = Vector2(0, 820)
+
+[node name="explosion" parent="." instance=ExtResource("9_4y5jl")]
+position = Vector2(-219, 207)
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

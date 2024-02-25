@@ -17,6 +17,7 @@ config/icon="res://art/icon.svg"
 [autoload]
 
 Vars="*res://var_files/vars.gd"
+MusicPlayer="*res://sounds/music_player.tscn"
 
 [display]
 

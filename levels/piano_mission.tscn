@@ -21,12 +21,12 @@ position = Vector2(-377, 191)
 [node name="cia" parent="." instance=ExtResource("2_17xij")]
 position = Vector2(416, 178)
 
-[node name="piano" parent="." instance=ExtResource("1_lsy81")]
-position = Vector2(-285, -193)
-
 [node name="castro_rope" type="Line2D" parent="."]
 points = PackedVector2Array(-304, -449, -303, -184)
-default_color = Color(0.298039, 0.470588, 0.282353, 1)
+default_color = Color(0.717647, 0.611765, 0.372549, 1)
+
+[node name="piano" parent="." instance=ExtResource("1_lsy81")]
+position = Vector2(-285, -193)
 
 [node name="hook" parent="." instance=ExtResource("5_qck2f")]
 position = Vector2(-287, -458)
@@ -40,7 +40,7 @@ position = Vector2(296, -454)
 
 [node name="cia_rope" type="Line2D" parent="."]
 points = PackedVector2Array(294, 263, 293, -453)
-default_color = Color(0.384314, 0.254902, 0.0901961, 1)
+default_color = Color(0.717647, 0.611765, 0.372549, 1)
 
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -60,7 +60,7 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("6_b8wt1")]
-position = Vector2(7, 367)
+position = Vector2(445, -167)
 tx = 5
 level = NodePath("..")
 

@@ -28,7 +28,6 @@ visible = false
 position = Vector2(-639, -147)
 
 [node name="bomb" parent="." instance=ExtResource("4_3ixdq")]
-visible = false
 position = Vector2(552, 173)
 
 [node name="fire" parent="bomb" instance=ExtResource("5_2e5gi")]

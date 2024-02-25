@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://char_files/ship.gd" id="1_rj7do"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o504l"]
-size = Vector2(267, 65)
+size = Vector2(299, 90)
 
 [node name="ship" type="Node2D"]
 script = ExtResource("1_rj7do")
@@ -12,7 +12,7 @@ script = ExtResource("1_rj7do")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-3.5, 12.5)
+position = Vector2(-2.5, 14)
 shape = SubResource("RectangleShape2D_o504l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

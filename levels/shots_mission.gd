@@ -28,14 +28,23 @@ func _process(delta):
 				b.position.x = get_global_mouse_position()[0]
 				b.position.y = get_global_mouse_position()[1]
 			
-	if $beer.entered == true and $beer2.entered == true:
+	if $beer.entered == true and $beer2.entered == true and win_cond == null:
 		win_cond = false
+		$beer.rotation_degrees = 90
+		$beer.position.x += 20
+		$beer2.rotation_degrees = 90
+		$Beerim.rotation_degrees = 90
+		$Beerim.position.x += 20
+		$beer2.position.x += 50
+		$beer2/spill_sound.play()
+		
 	
 	if win_cond == true:
 		$cia.position.y += 10
 		$cia.rotation += 0.02
 	
 	if win_cond == false:
+		game_vars.music_player.turn_down()
 		$Head.position.y += 10
 		$Head.rotation += 0.02
 
@@ -54,5 +63,5 @@ func level_over():
 
 
 func _on_bartime_timeout():
-	if win_cond != true or false:
+	if win_cond == null:
 		$time_rect.size.x -= game_vars.speed_times[game_vars.cur_speed]

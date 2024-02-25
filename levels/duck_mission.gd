@@ -20,14 +20,17 @@ func _process(delta):
 	game_vars.lab_move(win_cond, $"lose label")
 	
 	if win_cond == false:
+		
 		$castro.position.y += 10
 		$castro.rotation += 0.02
 		$blood_wall.emitting = true
 		
 	if duck_drop == false:
+		
 		$duck.position.x = get_global_mouse_position()[0]
 		$duck.position.y = get_global_mouse_position()[1]
 	if duck_drop == true and fired == false:
+		
 		if $duck.position.x > $castro.position.x:
 			#eventually this will be an animation, but right now it just moves castros head by 200 px
 			#depending on where the duck gets dropped
@@ -36,6 +39,8 @@ func _process(delta):
 		else:
 			$castro.position.x -= 200
 			fired = true
+	if win_cond == false:
+		game_vars.music_player.turn_down()
 
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond == null:

@@ -52,7 +52,7 @@ func _process(delta):
 			$top_rope.visible = false
 			fired = true
 		else:
-			if $piano.position.y <= $castro.position.y:
+			if $piano.position.y <= $castro.position.y - 50:
 				$cia_rope.points[0].y -= 10
 				$cia_rope.points[0].x -= 10
 				$castro_rope.points[1].y += 10
@@ -67,6 +67,12 @@ func _process(delta):
 		win_cond = false 
 		$lvTimer.stop()
 		hook_chose = true
+		
+	if win_cond == false:
+		if $castro.position.y - $piano.position.y <= 60:
+			$blood_floor.emitting = true
+		game_vars.music_player.turn_down()
+		
 
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:

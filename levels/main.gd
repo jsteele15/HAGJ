@@ -12,6 +12,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+	
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
@@ -36,3 +37,4 @@ func _on_area_2_dexit_mouse_entered():
 func _on_area_2_dexit_mouse_exited():
 	$MenuButtonsSheet2.frame =3
 	exit_entered = false
+

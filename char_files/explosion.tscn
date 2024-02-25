@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://drgildw4smgq1"]
+
+[ext_resource type="Material" uid="uid://dke25nhirgbri" path="res://char_files/explosion.tres" id="1_iumpg"]
+
+[node name="explosion" type="GPUParticles2D"]
+emitting = false
+amount = 100
+process_material = ExtResource("1_iumpg")
+lifetime = 8.0
+one_shot = true
+speed_scale = 10.0
+explosiveness = 1.0
