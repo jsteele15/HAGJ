@@ -1,15 +1,78 @@
-[gd_scene load_steps=8 format=3 uid="uid://xax48hj3biwh"]
+[gd_scene load_steps=12 format=3 uid="uid://xax48hj3biwh"]
 
 [ext_resource type="Script" path="res://levels/duck_mission.gd" id="1_e83kr"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="2_1m06r"]
 [ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="2_311nx"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_fxw0l"]
 [ext_resource type="PackedScene" uid="uid://b8q37dym60h3y" path="res://char_files/blood_wall.tscn" id="2_y5skw"]
 [ext_resource type="PackedScene" uid="uid://cojowxfjaym7m" path="res://char_files/duck.tscn" id="3_7408n"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_i5kh6"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_q0kvg"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_m2638"]
+[ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="10_17h0g"]
+[ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="11_ki4hl"]
 
 [node name="duck_mission" type="Node2D"]
 script = ExtResource("1_e83kr")
+
+[node name="sky" type="Sprite2D" parent="."]
+modulate = Color(0.541176, 0.831373, 0.839216, 1)
+position = Vector2(258, -180)
+texture = ExtResource("2_fxw0l")
+
+[node name="trees8" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(155, -39)
+rotation = -0.280998
+scale = Vector2(0.4, 0.4)
+fra = 1
+
+[node name="trees7" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(272, -23)
+rotation = 0.469494
+scale = Vector2(0.4, 0.4)
+fra = 1
+
+[node name="trees6" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(-263, -61)
+rotation = 0.0942478
+scale = Vector2(0.5, 0.5)
+fra = 1
+
+[node name="trees3" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(0, -127)
+
+[node name="third" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0.8, 0.545098, 1)
+position = Vector2(140, 1609)
+texture = ExtResource("2_fxw0l")
+
+[node name="trees4" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(-463, -104)
+rotation = -0.18675
+scale = Vector2(0.75, 0.75)
+
+[node name="trees5" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(463, -104)
+rotation = 0.18675
+scale = Vector2(0.75, 0.75)
+
+[node name="second" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.815686, 0.576471, 1)
+position = Vector2(136, 1681)
+texture = ExtResource("2_fxw0l")
+
+[node name="first" type="Sprite2D" parent="."]
+modulate = Color(0.913725, 0.835294, 0.611765, 1)
+position = Vector2(116, 1777)
+texture = ExtResource("2_fxw0l")
+
+[node name="trees2" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(0, -127)
+fra = 2
+
+[node name="trees" parent="." instance=ExtResource("2_1m06r")]
+position = Vector2(0, -125)
+fra = 3
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -17,7 +80,7 @@ script = ExtResource("1_e83kr")
 position = Vector2(-7, -173)
 
 [node name="castro" parent="." instance=ExtResource("2_311nx")]
-position = Vector2(-1, -161)
+position = Vector2(-6, -67)
 
 [node name="duck" parent="." instance=ExtResource("3_7408n")]
 visible = false
@@ -41,7 +104,7 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_i5kh6")]
-position = Vector2(-2, 145)
+position = Vector2(14, 365)
 tx = 1
 level = NodePath("..")
 
@@ -50,6 +113,12 @@ position = Vector2(0, -400)
 
 [node name="lose label" parent="." instance=ExtResource("6_m2638")]
 position = Vector2(0, 820)
+
+[node name="explosion" parent="." instance=ExtResource("10_17h0g")]
+position = Vector2(-1, -60)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("11_ki4hl")
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

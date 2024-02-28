@@ -72,7 +72,9 @@ func _process(delta):
 		if $castro.position.y - $piano.position.y <= 60:
 			$blood_floor.emitting = true
 		game_vars.music_player.turn_down()
-		
+	
+	if win_cond != null:
+		$level_text.visible = false
 
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:

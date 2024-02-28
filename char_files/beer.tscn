@@ -18,5 +18,9 @@ shape = SubResource("RectangleShape2D_f8uax")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_jkowx")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.053
+
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

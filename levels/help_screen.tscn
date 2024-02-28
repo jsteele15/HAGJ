@@ -1,0 +1,97 @@
+[gd_scene load_steps=12 format=3 uid="uid://cp1i1md7mrl33"]
+
+[ext_resource type="Script" path="res://levels/help_screen.gd" id="1_57ocl"]
+[ext_resource type="Texture2D" uid="uid://2cbvyjianobp" path="res://art/intro_text.png" id="1_rjaae"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="2_307tx"]
+[ext_resource type="Texture2D" uid="uid://bkohmg1kdcjsm" path="res://art/backdrop.png" id="2_vwepf"]
+[ext_resource type="Texture2D" uid="uid://di3k0l1p7frue" path="res://art/help.png" id="3_qciba"]
+[ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="4_c0wxf"]
+[ext_resource type="PackedScene" uid="uid://cl6mgux20a7xj" path="res://char_files/beer.tscn" id="6_slovl"]
+[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="7_5jgkc"]
+[ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="8_j55t2"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="10_83dxm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruykn"]
+size = Vector2(1069, 205)
+
+[node name="help_screen" type="Node2D"]
+script = ExtResource("1_57ocl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(9.49997, -69)
+scale = Vector2(1.55167, 1)
+texture = ExtResource("2_vwepf")
+
+[node name="TextSheet" type="Sprite2D" parent="."]
+position = Vector2(-15, -150)
+scale = Vector2(0.592727, 2.81)
+texture = ExtResource("2_307tx")
+hframes = 10
+
+[node name="IntroText" type="Sprite2D" parent="."]
+position = Vector2(10, -140)
+texture = ExtResource("1_rjaae")
+
+[node name="LeftHand" parent="." instance=ExtResource("4_c0wxf")]
+position = Vector2(-403, 260)
+scale = Vector2(0.3, 0.3)
+
+[node name="fire" parent="LeftHand" instance=ExtResource("10_83dxm")]
+position = Vector2(113.333, -166.667)
+scale = Vector2(33.3333, 33.3333)
+
+[node name="TextSheet2" type="Sprite2D" parent="."]
+position = Vector2(-400, 307)
+scale = Vector2(0.174091, 0.335)
+texture = ExtResource("2_307tx")
+hframes = 10
+
+[node name="TextSheet3" type="Sprite2D" parent="."]
+position = Vector2(0, 307)
+scale = Vector2(0.174091, 0.335)
+texture = ExtResource("2_307tx")
+hframes = 10
+
+[node name="TextSheet4" type="Sprite2D" parent="."]
+position = Vector2(400, 307)
+scale = Vector2(0.174091, 0.335)
+texture = ExtResource("2_307tx")
+hframes = 10
+
+[node name="Help" type="Sprite2D" parent="."]
+position = Vector2(0, 307)
+texture = ExtResource("3_qciba")
+
+[node name="beer" parent="." instance=ExtResource("6_slovl")]
+position = Vector2(-1, 226)
+scale = Vector2(0.3, 0.3)
+
+[node name="CiaHead" type="Sprite2D" parent="."]
+position = Vector2(403, 221)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_5jgkc")
+
+[node name="behind_play" type="Sprite2D" parent="."]
+position = Vector2(-0.999992, 441)
+scale = Vector2(0.255227, 0.4725)
+texture = ExtResource("2_307tx")
+hframes = 10
+
+[node name="MenuButtonsSheet" type="Sprite2D" parent="."]
+position = Vector2(0, 438)
+scale = Vector2(0.55, 0.62)
+texture = ExtResource("8_j55t2")
+hframes = 10
+frame = 1
+
+[node name="Area2Dstart" type="Area2D" parent="MenuButtonsSheet"]
+position = Vector2(0, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButtonsSheet/Area2Dstart"]
+position = Vector2(1.5, -3.5)
+shape = SubResource("RectangleShape2D_ruykn")
+
+[connection signal="mouse_entered" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_entered"]
+[connection signal="mouse_exited" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_exited"]

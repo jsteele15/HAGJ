@@ -1,15 +1,79 @@
-[gd_scene load_steps=2 format=3 uid="uid://c0u5an3qgiyxm"]
+[gd_scene load_steps=7 format=3 uid="uid://c0u5an3qgiyxm"]
 
 [ext_resource type="Script" path="res://levels/speeding_up.gd" id="1_4np07"]
+[ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="2_ewlo2"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_hnew4"]
+[ext_resource type="Texture2D" uid="uid://dggcxihalysxk" path="res://art/speed_up_sprite.png" id="3_13ynm"]
+[ext_resource type="Texture2D" uid="uid://bcax77gcssywg" path="res://art/boards.png" id="4_st8r0"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="5_o3pk7"]
 
 [node name="speeding_up" type="Node2D"]
 script = ExtResource("1_4np07")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -157.0
-offset_top = -59.0
-offset_right = 207.0
-offset_bottom = 43.0
-text = "speeding up, are you ready?"
+[node name="Backdrop3" type="Sprite2D" parent="."]
+modulate = Color(0.505882, 0.72549, 0.976471, 1)
+position = Vector2(23, -88)
+texture = ExtResource("2_hnew4")
+
+[node name="trees3" parent="." instance=ExtResource("5_o3pk7")]
+position = Vector2(651, -127)
+scale = Vector2(0.4, 0.4)
+fra = 1
+
+[node name="trees4" parent="." instance=ExtResource("5_o3pk7")]
+position = Vector2(595, -169)
+rotation = -0.0977384
+scale = Vector2(0.5, 0.5)
+
+[node name="trees2" parent="." instance=ExtResource("5_o3pk7")]
+position = Vector2(722, -162)
+rotation = 0.18675
+scale = Vector2(0.5, 0.5)
+
+[node name="trees" parent="." instance=ExtResource("5_o3pk7")]
+position = Vector2(-625, -172)
+scale = Vector2(0.5, 0.5)
+
+[node name="third" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0.8, 0.545098, 1)
+position = Vector2(127, 1530)
+texture = ExtResource("2_hnew4")
+
+[node name="second" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.815686, 0.576471, 1)
+position = Vector2(139, 1663)
+texture = ExtResource("2_hnew4")
+
+[node name="first" type="Sprite2D" parent="."]
+modulate = Color(0.913725, 0.835294, 0.611765, 1)
+position = Vector2(111, 1772)
+texture = ExtResource("2_hnew4")
+
+[node name="Boards" type="Sprite2D" parent="."]
+position = Vector2(-682, -59)
+scale = Vector2(0.588333, 0.49403)
+texture = ExtResource("4_st8r0")
+
+[node name="Boards2" type="Sprite2D" parent="."]
+position = Vector2(-1035, -59)
+scale = Vector2(0.588333, 0.49403)
+texture = ExtResource("4_st8r0")
+
+[node name="TextSheet" type="Sprite2D" parent="."]
+position = Vector2(-1.50001, -56)
+scale = Vector2(1.01909, 1.37)
+texture = ExtResource("2_ewlo2")
+hframes = 10
+
+[node name="SpeedUpSprite" type="Sprite2D" parent="."]
+position = Vector2(1, -102)
+texture = ExtResource("3_13ynm")
+hframes = 2
+
+[node name="SpeedUpSprite2" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+texture = ExtResource("3_13ynm")
+hframes = 2
+frame = 1

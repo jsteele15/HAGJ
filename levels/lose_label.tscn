@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://f7lcieg80ccc"]
+[gd_scene load_steps=7 format=3 uid="uid://f7lcieg80ccc"]
 
 [ext_resource type="Script" path="res://levels/lose_label.gd" id="1_gb31a"]
 [ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="1_jp6ot"]
 [ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="2_l2lgx"]
+[ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="4_ewmd0"]
+[ext_resource type="Texture2D" uid="uid://d0x6aotamdfbc" path="res://art/hs.png" id="5_vnk7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_228jq"]
 size = Vector2(1067, 206)
@@ -11,8 +13,8 @@ size = Vector2(1067, 206)
 script = ExtResource("1_gb31a")
 
 [node name="back" type="Sprite2D" parent="."]
-position = Vector2(-3, -75)
-scale = Vector2(1, 1.565)
+position = Vector2(-3, 72.25)
+scale = Vector2(1, 3.0375)
 texture = ExtResource("1_jp6ot")
 hframes = 10
 
@@ -29,11 +31,6 @@ texture = ExtResource("2_l2lgx")
 hframes = 10
 frame = 7
 
-[node name="back2" type="Sprite2D" parent="."]
-position = Vector2(3, 275)
-texture = ExtResource("1_jp6ot")
-hframes = 10
-
 [node name="rest" type="Sprite2D" parent="."]
 position = Vector2(1, 273)
 texture = ExtResource("2_l2lgx")
@@ -45,6 +42,13 @@ frame = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="rest/Area2D"]
 position = Vector2(2, -3)
 shape = SubResource("RectangleShape2D_228jq")
+
+[node name="score_board" parent="." instance=ExtResource("4_ewmd0")]
+position = Vector2(800, 117)
+
+[node name="Hs" type="Sprite2D" parent="."]
+position = Vector2(-327, 135)
+texture = ExtResource("5_vnk7p")
 
 [connection signal="mouse_entered" from="rest/Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="rest/Area2D" to="." method="_on_area_2d_mouse_exited"]

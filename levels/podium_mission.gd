@@ -17,12 +17,19 @@ func level_over():
 func _process(delta):
 	game_vars.lab_move(win_cond, $"lose label")
 	
+	if win_cond != null:
+		for h in [$CiaHead]:
+			if h.position.x <= 0:
+				h.position.x -= 2
+	
 	if $podium.stolen == null:
 		if $castro.position.x >=  $podium.position.x:
 			$castro.position.x -= 3
 	
 	if $podium.stolen != null:
+		$level_text.visible = false
 		$castro.position.x += 3
+		
 	
 	if win_cond == true and fired != true:
 		game_vars.change_score_and_timers($lvTimer, $winTimer, $score_board)

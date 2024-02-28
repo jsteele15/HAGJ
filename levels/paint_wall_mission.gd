@@ -46,7 +46,10 @@ func _process(delta):
 			$castro.visible = false
 			$blood_wall.emitting = true
 		game_vars.music_player.turn_down()
-
+	
+	if win_cond != null:
+		$level_text.visible = false
+	
 		
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:

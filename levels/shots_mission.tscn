@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b625j38ldufmr"]
+[gd_scene load_steps=13 format=3 uid="uid://b625j38ldufmr"]
 
 [ext_resource type="Script" path="res://levels/shots_mission.gd" id="1_s7t36"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_jr8q7"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_vyrus"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_enlkh"]
 [ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="3_o66kv"]
 [ext_resource type="PackedScene" uid="uid://cl6mgux20a7xj" path="res://char_files/beer.tscn" id="4_g4vi1"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="5_62plf"]
@@ -16,9 +18,59 @@ script = ExtResource("1_s7t36")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="sky" type="Sprite2D" parent="."]
+modulate = Color(0.541176, 0.831373, 0.839216, 1)
+position = Vector2(274, -598)
+texture = ExtResource("2_jr8q7")
+
+[node name="trees" parent="." instance=ExtResource("3_enlkh")]
+position = Vector2(-522, -115)
+rotation = -0.282743
+scale = Vector2(0.5, 0.5)
+
+[node name="trees2" parent="." instance=ExtResource("3_enlkh")]
+position = Vector2(-437, -118)
+rotation = 0.18675
+scale = Vector2(0.4, 0.4)
+
+[node name="sand" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.815686, 0.576471, 1)
+position = Vector2(324, 609.5)
+scale = Vector2(1, 0.378333)
+texture = ExtResource("2_jr8q7")
+
 [node name="Head" type="Sprite2D" parent="."]
-position = Vector2(-167, -148)
+position = Vector2(-170, -145)
+scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_vyrus")
+
+[node name="cia" parent="." instance=ExtResource("3_o66kv")]
+position = Vector2(165, -142)
+scale = Vector2(1.5, 1.5)
+
+[node name="leg2" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(350, 459)
+scale = Vector2(0.01325, 0.0889166)
+texture = ExtResource("2_jr8q7")
+
+[node name="leg" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(-350, 459)
+scale = Vector2(0.01325, 0.0889166)
+texture = ExtResource("2_jr8q7")
+
+[node name="table2" type="Sprite2D" parent="."]
+modulate = Color(0.423529, 0.294118, 0.2, 1)
+position = Vector2(0, 281)
+scale = Vector2(0.285833, 0.0889166)
+texture = ExtResource("2_jr8q7")
+
+[node name="table" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(3.8147e-06, 261)
+scale = Vector2(0.285833, 0.0889166)
+texture = ExtResource("2_jr8q7")
 
 [node name="time_rect" type="ColorRect" parent="."]
 offset_left = -299.0
@@ -26,9 +78,6 @@ offset_top = -461.0
 offset_right = 301.0
 offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
-
-[node name="cia" parent="." instance=ExtResource("3_o66kv")]
-position = Vector2(165, -142)
 
 [node name="beer" parent="." instance=ExtResource("4_g4vi1")]
 position = Vector2(-177, 83)

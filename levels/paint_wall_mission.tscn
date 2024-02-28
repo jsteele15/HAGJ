@@ -1,9 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxrbcscsvnx7v"]
+[gd_scene load_steps=14 format=3 uid="uid://cxrbcscsvnx7v"]
 
 [ext_resource type="PackedScene" uid="uid://dbsdxsqosmq35" path="res://char_files/stand.tscn" id="1_61bui"]
 [ext_resource type="Script" path="res://levels/paint_wall_mission.gd" id="1_hsgk6"]
 [ext_resource type="PackedScene" uid="uid://c3i4cepfmwlay" path="res://char_files/billboard.tscn" id="1_xtg8a"]
+[ext_resource type="Texture2D" uid="uid://bcax77gcssywg" path="res://art/boards.png" id="2_3rvrl"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_e5qdf"]
 [ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="2_nw843"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_7x4e1"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="5_do5sb"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="6_ykyyb"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="7_ag8a7"]
@@ -16,18 +19,50 @@ script = ExtResource("1_hsgk6")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -321.0
-offset_top = 33.0
-offset_right = 1314.0
-offset_bottom = 315.0
-color = Color(0.329412, 0.454902, 0.403922, 1)
+[node name="Backdrop4" type="Sprite2D" parent="."]
+modulate = Color(0.505882, 0.72549, 0.976471, 1)
+position = Vector2(181, -409)
+texture = ExtResource("2_e5qdf")
+
+[node name="trees" parent="." instance=ExtResource("3_7x4e1")]
+position = Vector2(-589, -51)
+fra = 1
+
+[node name="trees2" parent="." instance=ExtResource("3_7x4e1")]
+position = Vector2(585, -58)
+fra = 1
+
+[node name="Backdrop3" type="Sprite2D" parent="."]
+modulate = Color(0.807843, 0.709804, 0.423529, 1)
+position = Vector2(196, 995)
+scale = Vector2(1, 0.442667)
+texture = ExtResource("2_e5qdf")
+
+[node name="Boards2" type="Sprite2D" parent="."]
+position = Vector2(-591, 174.75)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
+
+[node name="Boards4" type="Sprite2D" parent="."]
+position = Vector2(608, 175)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
+
+[node name="Boards3" type="Sprite2D" parent="."]
+position = Vector2(9, 175)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
+
+[node name="Boards5" type="Sprite2D" parent="."]
+position = Vector2(1208, 175)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
 
 [node name="stand2" parent="." instance=ExtResource("1_61bui")]
-position = Vector2(243, 12)
+position = Vector2(243, 9)
 
 [node name="stand" parent="." instance=ExtResource("1_61bui")]
-position = Vector2(-248, 8)
+position = Vector2(-248, 9)
 
 [node name="billboard" parent="." instance=ExtResource("1_xtg8a")]
 position = Vector2(-11, -235)
@@ -36,14 +71,18 @@ bill = 1
 [node name="castro" parent="." instance=ExtResource("2_nw843")]
 position = Vector2(1221, 177)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -1885.0
-offset_top = 33.0
-offset_right = -278.0
-offset_bottom = 315.0
-color = Color(0.372549, 0.439216, 0.435294, 1)
+[node name="Boards" type="Sprite2D" parent="."]
+position = Vector2(-591, 174.75)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
+
+[node name="Boards6" type="Sprite2D" parent="."]
+position = Vector2(-1191, 175)
+scale = Vector2(1, 0.843284)
+texture = ExtResource("2_3rvrl")
 
 [node name="billboard2" parent="." instance=ExtResource("1_xtg8a")]
+visible = false
 position = Vector2(-10, -235)
 
 [node name="lvTimer" type="Timer" parent="."]
@@ -64,7 +103,7 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("5_do5sb")]
-position = Vector2(402, -416)
+position = Vector2(0, 338)
 tx = 6
 level = NodePath("..")
 

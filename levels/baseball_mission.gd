@@ -17,7 +17,9 @@ func level_over():
 func changeUp():
 	$shoe.visible = false
 	$shoe2.visible = false
-	for i in [$castro, $bomb, $Base, $Base2]:
+	$first.visible = false
+	$level_text.visible = false
+	for i in [$castro, $bomb, $Base, $Base2, $sky, $second, $Base3, $CiaHead]:
 		i.visible = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

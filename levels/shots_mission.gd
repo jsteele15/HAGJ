@@ -10,7 +10,7 @@ func _ready():
 	$time_rect.position.y = get_viewport().size[1]/2-30
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+# Called every frame 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	game_vars.lab_move(win_cond, $"lose label")
 	$Beerim.position.y = $beer.position.y
@@ -28,7 +28,7 @@ func _process(delta):
 				b.position.x = get_global_mouse_position()[0]
 				b.position.y = get_global_mouse_position()[1]
 			
-	if $beer.entered == true and $beer2.entered == true and win_cond == null:
+	if $beer.ent2 == true and $beer2.ent2 == true and win_cond == null:
 		win_cond = false
 		$beer.rotation_degrees = 90
 		$beer.position.x += 20
@@ -47,7 +47,9 @@ func _process(delta):
 		game_vars.music_player.turn_down()
 		$Head.position.y += 10
 		$Head.rotation += 0.02
-
+	
+	if win_cond != null:
+		$level_text.visible = false
 
 
 func _on_win_timer_timeout():

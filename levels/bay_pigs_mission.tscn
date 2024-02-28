@@ -1,22 +1,62 @@
-[gd_scene load_steps=7 format=3 uid="uid://ceacnoghjhaq6"]
+[gd_scene load_steps=12 format=3 uid="uid://ceacnoghjhaq6"]
 
 [ext_resource type="Script" path="res://levels/bay_pigs_mission.gd" id="1_0m4vv"]
 [ext_resource type="PackedScene" uid="uid://dy8thq0jlogci" path="res://char_files/ship.tscn" id="1_uv5nu"]
-[ext_resource type="PackedScene" uid="uid://cmdlmg4asngm" path="res://char_files/land.tscn" id="3_hxmu2"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_nbs17"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_2q3sl"]
+[ext_resource type="Texture2D" uid="uid://cos0clt5k5ilx" path="res://art/cuban_flag.png" id="5_o4ori"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_u6xds"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_qxlyo"]
+[ext_resource type="Texture2D" uid="uid://c1ygwhm8e4vgg" path="res://art/florida_cuba.png" id="7_2hkxj"]
+[ext_resource type="Texture2D" uid="uid://5xpq4pjssl2" path="res://art/us_flag.png" id="8_ho2lm"]
+[ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="8_pufk2"]
+[ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="9_c2xcy"]
 
 [node name="bay_pigs_mission" type="Node2D"]
 script = ExtResource("1_0m4vv")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ship" parent="." instance=ExtResource("1_uv5nu")]
-position = Vector2(-84, 121)
+[node name="Backdrop6" type="Sprite2D" parent="."]
+modulate = Color(0.784314, 0.878431, 1, 1)
+position = Vector2(-209, 192)
+texture = ExtResource("2_nbs17")
 
-[node name="land" parent="." instance=ExtResource("3_hxmu2")]
-position = Vector2(830, 75)
+[node name="ship2" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-463, -66)
+
+[node name="Backdrop5" type="Sprite2D" parent="."]
+modulate = Color(0.294118, 0.556863, 0.752941, 1)
+position = Vector2(-212, 864)
+scale = Vector2(1, 0.594333)
+texture = ExtResource("2_nbs17")
+
+[node name="ship" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-729, 79)
+
+[node name="Backdrop4" type="Sprite2D" parent="."]
+modulate = Color(0.294118, 0.556863, 0.752941, 1)
+position = Vector2(-210, 1619)
+texture = ExtResource("2_nbs17")
+
+[node name="ship3" parent="." instance=ExtResource("1_uv5nu")]
+position = Vector2(-492, 211)
+
+[node name="Backdrop3" type="Sprite2D" parent="."]
+modulate = Color(0.294118, 0.556863, 0.752941, 1)
+position = Vector2(-218, 1403.25)
+scale = Vector2(1, 0.768167)
+texture = ExtResource("2_nbs17")
+
+[node name="land" type="Sprite2D" parent="."]
+position = Vector2(809, 237)
+texture = ExtResource("7_2hkxj")
+hframes = 2
+
+[node name="CubanFlag" type="Sprite2D" parent="land"]
+position = Vector2(-13, -30)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("5_o4ori")
 
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -28,12 +68,6 @@ wait_time = 2.0
 wait_time = 0.041
 autostart = true
 
-[node name="ship2" parent="." instance=ExtResource("1_uv5nu")]
-position = Vector2(-460, -119)
-
-[node name="ship3" parent="." instance=ExtResource("1_uv5nu")]
-position = Vector2(-486, 236)
-
 [node name="time_rect" type="ColorRect" parent="."]
 offset_left = -299.0
 offset_top = -461.0
@@ -42,15 +76,32 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_2q3sl")]
-position = Vector2(1, -266)
+position = Vector2(1, 362)
 tx = 4
 level = NodePath("..")
 
 [node name="score_board" parent="." instance=ExtResource("5_u6xds")]
 position = Vector2(0, -400)
 
+[node name="FloridaCuba" type="Sprite2D" parent="."]
+position = Vector2(-937, 295)
+texture = ExtResource("7_2hkxj")
+hframes = 2
+frame = 1
+
+[node name="UsFlag" type="Sprite2D" parent="FloridaCuba"]
+position = Vector2(90, -68)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_ho2lm")
+
+[node name="explosion" parent="." instance=ExtResource("8_pufk2")]
+position = Vector2(249, 242)
+
 [node name="lose label" parent="." instance=ExtResource("6_qxlyo")]
 position = Vector2(0, 820)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_c2xcy")
 
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

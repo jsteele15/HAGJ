@@ -1,25 +1,104 @@
-[gd_scene load_steps=10 format=3 uid="uid://dob0vl0e6olcv"]
+[gd_scene load_steps=13 format=3 uid="uid://dob0vl0e6olcv"]
 
 [ext_resource type="Script" path="res://levels/podium_mission.gd" id="1_10x4y"]
 [ext_resource type="PackedScene" uid="uid://k8v1fhmmn7em" path="res://char_files/podium.tscn" id="1_x7wjk"]
-[ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="2_pp58j"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_0ffeg"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_58jow"]
 [ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="3_u4ja8"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_c83gf"]
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="5_kmot3"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_hw522"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="7_4kw1y"]
 [ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="9_vwuba"]
+[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="11_p4trq"]
+[ext_resource type="Texture2D" uid="uid://bexq2dpp3m4q3" path="res://art/backhead.png" id="11_vmnyp"]
 
 [node name="podium_mission" type="Node2D"]
 script = ExtResource("1_10x4y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="Backdrop6" type="Sprite2D" parent="."]
+modulate = Color(0.784314, 0.878431, 1, 1)
+position = Vector2(141, 202)
+texture = ExtResource("2_0ffeg")
+
+[node name="third" type="Sprite2D" parent="."]
+modulate = Color(0.890196, 0.8, 0.545098, 1)
+position = Vector2(218, 1417)
+scale = Vector2(1, 0.99)
+texture = ExtResource("2_0ffeg")
+
+[node name="second" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.815686, 0.576471, 1)
+position = Vector2(215, 1592)
+texture = ExtResource("2_0ffeg")
+
+[node name="CiaHead" type="Sprite2D" parent="."]
+position = Vector2(-296, -150)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("11_p4trq")
+
+[node name="trees" parent="." instance=ExtResource("3_58jow")]
+position = Vector2(-750, -254)
+rotation = -0.280998
+scale = Vector2(0.7, 0.7)
+
+[node name="second2" type="Sprite2D" parent="."]
+modulate = Color(0.87451, 0.780392, 0.517647, 1)
+position = Vector2(240, 1499)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg5" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(650, 314.313)
+scale = Vector2(0.0382917, 0.0444583)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(-1050, 312.813)
+scale = Vector2(0.0382917, 0.0434583)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg6" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(1050, 320.813)
+scale = Vector2(0.0382917, 0.0487916)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg3" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(-250, 312.813)
+scale = Vector2(0.0382917, 0.0434583)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg2" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(-650, 314.313)
+scale = Vector2(0.0382917, 0.0444583)
+texture = ExtResource("2_0ffeg")
+
+[node name="leg4" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(250, 312.813)
+scale = Vector2(0.0382917, 0.0434583)
+texture = ExtResource("2_0ffeg")
+
+[node name="floor2" type="Sprite2D" parent="."]
+modulate = Color(0.427451, 0.298039, 0.239216, 1)
+position = Vector2(565, 188)
+scale = Vector2(1.21733, 0.0698334)
+texture = ExtResource("2_0ffeg")
+
+[node name="floor" type="Sprite2D" parent="."]
+modulate = Color(0.556863, 0.4, 0.32549, 1)
+position = Vector2(561, 156.25)
+scale = Vector2(1.21733, 0.0698334)
+texture = ExtResource("2_0ffeg")
+
 [node name="podium" parent="." instance=ExtResource("1_x7wjk")]
 position = Vector2(0, -81)
-
-[node name="castro" parent="." instance=ExtResource("2_pp58j")]
-position = Vector2(550, -246)
 
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
@@ -59,6 +138,16 @@ volume_db = 0.1
 
 [node name="explosion" parent="." instance=ExtResource("9_vwuba")]
 position = Vector2(5, 16)
+
+[node name="castro" type="Sprite2D" parent="."]
+position = Vector2(548, -246)
+texture = ExtResource("11_vmnyp")
+
+[node name="leg7" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.368627, 0.258824, 1)
+position = Vector2(1450, 381)
+scale = Vector2(0.0382917, 0.0889166)
+texture = ExtResource("2_0ffeg")
 
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]

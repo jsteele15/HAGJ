@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://b78krultc6sts"]
+[gd_scene load_steps=12 format=3 uid="uid://b78krultc6sts"]
 
 [ext_resource type="Script" path="res://levels/cigar_mission.gd" id="1_qmwmt"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_jqfby"]
 [ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="2_wc4fy"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_27tmo"]
 [ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="3_cc3vg"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_qvsh5"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="4_sqp8h"]
@@ -15,13 +17,49 @@ script = ExtResource("1_qmwmt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="sky" type="Sprite2D" parent="."]
+modulate = Color(0.552941, 0.831373, 0.815686, 1)
+position = Vector2(257, -191)
+texture = ExtResource("2_jqfby")
+
+[node name="trees2" parent="." instance=ExtResource("3_27tmo")]
+position = Vector2(682, 126)
+rotation = -0.375246
+scale = Vector2(0.15, 0.15)
+fra = 1
+
+[node name="trees3" parent="." instance=ExtResource("3_27tmo")]
+position = Vector2(751, 129)
+rotation = 0.375246
+scale = Vector2(0.15, 0.15)
+fra = 1
+
+[node name="trees" parent="." instance=ExtResource("3_27tmo")]
+position = Vector2(718, 103)
+scale = Vector2(0.2, 0.2)
+
+[node name="trees4" parent="." instance=ExtResource("3_27tmo")]
+position = Vector2(-780, 116)
+scale = Vector2(0.2, 0.2)
+
+[node name="trees5" parent="." instance=ExtResource("3_27tmo")]
+position = Vector2(-732, 130)
+rotation = 0.18675
+scale = Vector2(0.2, 0.2)
+fra = 2
+
+[node name="first" type="Sprite2D" parent="."]
+modulate = Color(0.913725, 0.835294, 0.611765, 1)
+position = Vector2(204, 1676)
+texture = ExtResource("2_jqfby")
+
 [node name="Head" type="Sprite2D" parent="."]
-position = Vector2(-362, 128)
+position = Vector2(-341, -59)
 scale = Vector2(3, 3)
 texture = ExtResource("2_wc4fy")
 
 [node name="LeftHand" parent="." instance=ExtResource("3_cc3vg")]
-position = Vector2(343, 314)
+position = Vector2(320, 161)
 
 [node name="Line2D" type="Line2D" parent="LeftHand"]
 position = Vector2(-7, 13)
@@ -54,7 +92,7 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_qvsh5")]
-position = Vector2(2, -289)
+position = Vector2(-1, 359)
 tx = 2
 level = NodePath("..")
 

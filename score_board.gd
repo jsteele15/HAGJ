@@ -32,6 +32,17 @@ func change():
 		list_nums[i].position.x = list_pos[i]
 		list_nums[i].frame = int(test_string[i])
 		
+func hs():
+	test_num = game_vars.high_score
+	test_string = str(test_num)
+	
+	for i in range(len(test_string)-1, -1, -1):
+		
+		if list_nums[i].visible != true:
+			list_nums[i].visible = true
+		list_nums[i].position.x = list_pos[i]
+		list_nums[i].frame = int(test_string[i])
+		
 func _process(delta):
 	pass
 	#test_num = game_vars.score

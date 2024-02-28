@@ -1,8 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://bvsx2ln3uom0x"]
+[gd_scene load_steps=15 format=3 uid="uid://bvsx2ln3uom0x"]
 
 [ext_resource type="Script" path="res://levels/main.gd" id="1_3clm8"]
 [ext_resource type="Texture2D" uid="uid://dcxqc1hs6cbad" path="res://art/text_sheet.png" id="1_8qq4g"]
+[ext_resource type="Texture2D" uid="uid://bkohmg1kdcjsm" path="res://art/backdrop.png" id="2_b6lun"]
 [ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="3_5qoun"]
+[ext_resource type="Texture2D" uid="uid://cos0clt5k5ilx" path="res://art/cuban_flag.png" id="3_x1kf3"]
+[ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="4_5lmxm"]
+[ext_resource type="Texture2D" uid="uid://5xpq4pjssl2" path="res://art/us_flag.png" id="4_aelxm"]
+[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="5_al2u3"]
+[ext_resource type="Texture2D" uid="uid://ds111j78mjxj7" path="res://art/beer.png" id="7_c6jfu"]
+[ext_resource type="Texture2D" uid="uid://ffegqi5r1mm7" path="res://art/bomb.png" id="9_w84v8"]
+[ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="10_74hcm"]
+[ext_resource type="Texture2D" uid="uid://diq4h8vfrgw5n" path="res://art/title.png" id="12_71sd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_adto4"]
 size = Vector2(1069, 205)
@@ -14,6 +23,40 @@ size = Vector2(1068, 194)
 script = ExtResource("1_3clm8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Backdrop" type="Sprite2D" parent="."]
+position = Vector2(3, -29)
+scale = Vector2(1.55167, 1)
+texture = ExtResource("2_b6lun")
+
+[node name="CubanFlag" type="Sprite2D" parent="."]
+position = Vector2(-1572, -375)
+texture = ExtResource("3_x1kf3")
+
+[node name="UsFlag" type="Sprite2D" parent="."]
+position = Vector2(1812, 282)
+texture = ExtResource("4_aelxm")
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(-800, -1)
+scale = Vector2(3, 3)
+texture = ExtResource("4_5lmxm")
+
+[node name="CiaHead" type="Sprite2D" parent="."]
+position = Vector2(800, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("5_al2u3")
+
+[node name="Beer" type="Sprite2D" parent="."]
+position = Vector2(1233, -750)
+texture = ExtResource("7_c6jfu")
+
+[node name="Bomb" type="Sprite2D" parent="."]
+position = Vector2(-713, 581)
+texture = ExtResource("9_w84v8")
+
+[node name="fire" parent="Bomb" instance=ExtResource("10_74hcm")]
+position = Vector2(15.9999, -33)
 
 [node name="TextSheet" type="Sprite2D" parent="."]
 position = Vector2(0, -205)
@@ -50,6 +93,11 @@ position = Vector2(0, 239)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButtonsSheet2/Area2Dexit"]
 position = Vector2(7, -242)
 shape = SubResource("RectangleShape2D_30d1m")
+
+[node name="Title" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, 349)
+texture = ExtResource("12_71sd7")
 
 [connection signal="mouse_entered" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_entered"]
 [connection signal="mouse_exited" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_exited"]

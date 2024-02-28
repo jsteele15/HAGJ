@@ -5,6 +5,7 @@ var dead_ships = 0
 
 var win_cond;
 var fired;
+var sound_played;
 
 func level_over():
 	game_vars.next_level()
@@ -21,7 +22,18 @@ func _process(delta):
 	
 	for s in [$ship, $ship2, $ship3]:
 		if s.reached_dest == true and s.alive == true:
-			$land.position.x -= 1
+			if $land.position.x >= 400:
+				
+				$land.position.x -= 2
+			else:
+				$land.position.y += 10
+				$land.rotation_degrees += 5
+				if sound_played == null:
+					$AudioStreamPlayer2D.play()
+					$explosion.emitting = true
+					sound_played = true
+			
+			$FloridaCuba.position.x -= 2
 			
 	if dead_ships == 3 and fired != true:
 		win_cond = true
@@ -31,7 +43,8 @@ func _process(delta):
 	if win_cond == false:
 		game_vars.music_player.turn_down()
 		
-	
+	if win_cond != null:
+		$level_text.visible = false
 func _input(event):
 	if event.is_action_pressed("left_click") and win_cond != false:
 		print("input")

@@ -35,7 +35,9 @@ func _process(delta):
 		if fired_music == null:
 			$LeftHand/AudioStreamPlayer2D.play()
 			fired_music = true
-			
+	
+	if win_cond != null:
+		$level_text.visible = false
 	
 func _input(event):
 	if event.is_action_pressed("left_click") and $LeftHand.entered == true:

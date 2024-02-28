@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://cj6xlm2qemvp"]
+[gd_scene load_steps=11 format=3 uid="uid://cj6xlm2qemvp"]
 
 [ext_resource type="Script" path="res://levels/shell_mission.gd" id="1_11t6l"]
 [ext_resource type="PackedScene" uid="uid://cjwrtkainyn" path="res://char_files/shells.tscn" id="1_s104t"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_jtcgg"]
 [ext_resource type="PackedScene" uid="uid://bca7mxrdbsnb4" path="res://char_files/bomb.tscn" id="2_w4he8"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="3_eyvk3"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="4_3nslb"]
@@ -14,6 +15,11 @@
 script = ExtResource("1_11t6l")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Backdrop3" type="Sprite2D" parent="."]
+modulate = Color(0.180392, 0.298039, 0.462745, 1)
+position = Vector2(31, -44)
+texture = ExtResource("2_jtcgg")
 
 [node name="bomb" parent="." instance=ExtResource("2_w4he8")]
 position = Vector2(-360, -347)

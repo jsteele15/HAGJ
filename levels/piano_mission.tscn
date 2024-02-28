@@ -1,8 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://ch5nlvslekskw"]
+[gd_scene load_steps=12 format=3 uid="uid://ch5nlvslekskw"]
 
 [ext_resource type="PackedScene" uid="uid://jlnmshhagf0v" path="res://char_files/piano.tscn" id="1_lsy81"]
 [ext_resource type="Script" path="res://levels/piano_mission.gd" id="1_ptlm5"]
 [ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="2_17xij"]
+[ext_resource type="Texture2D" uid="uid://b1ma0snmmpyi1" path="res://art/backdrop3.png" id="2_dayfj"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_6jw1l"]
 [ext_resource type="PackedScene" uid="uid://dnsco05646th5" path="res://char_files/castro.tscn" id="3_o1oym"]
 [ext_resource type="PackedScene" uid="uid://b8ofmiyv57c8" path="res://char_files/hook.tscn" id="5_qck2f"]
 [ext_resource type="PackedScene" uid="uid://dbgmj1b2oipyq" path="res://char_files/level_text.tscn" id="6_b8wt1"]
@@ -15,8 +17,79 @@ script = ExtResource("1_ptlm5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="sky" type="Sprite2D" parent="."]
+modulate = Color(0.529412, 0.807843, 0.921569, 1)
+position = Vector2(46, 24)
+rotation = 2.55342
+texture = ExtResource("2_dayfj")
+
+[node name="trees" parent="." instance=ExtResource("3_6jw1l")]
+position = Vector2(634, -88)
+rotation = 0.0942478
+scale = Vector2(0.5, 0.5)
+
+[node name="walll" type="Sprite2D" parent="."]
+modulate = Color(0.980392, 0.941176, 0.862745, 1)
+position = Vector2(-443.5, -253.5)
+scale = Vector2(0.546333, 0.875667)
+texture = ExtResource("2_dayfj")
+
+[node name="walll2" type="Sprite2D" parent="."]
+modulate = Color(0.980392, 0.941176, 0.862745, 1)
+position = Vector2(1149, 691)
+scale = Vector2(0.546333, 0.427167)
+texture = ExtResource("2_dayfj")
+
+[node name="walll3" type="Sprite2D" parent="."]
+modulate = Color(0.980392, 0.941176, 0.862745, 1)
+position = Vector2(1507, -173)
+scale = Vector2(0.546333, 0.875667)
+texture = ExtResource("2_dayfj")
+
+[node name="walll4" type="Sprite2D" parent="."]
+modulate = Color(0.980392, 0.941176, 0.862745, 1)
+position = Vector2(746, -1705)
+scale = Vector2(0.546333, 0.875667)
+texture = ExtResource("2_dayfj")
+
+[node name="floor2" type="Sprite2D" parent="."]
+modulate = Color(0.737255, 0.560784, 0.478431, 1)
+position = Vector2(591, 1501)
+scale = Vector2(1.21733, 0.875667)
+texture = ExtResource("2_dayfj")
+
+[node name="floor" type="Sprite2D" parent="."]
+modulate = Color(0.556863, 0.4, 0.32549, 1)
+position = Vector2(571, 1538)
+scale = Vector2(1.21733, 0.875667)
+texture = ExtResource("2_dayfj")
+
+[node name="sill" type="Sprite2D" parent="."]
+modulate = Color(0.956863, 0.956863, 0.956863, 1)
+position = Vector2(532, 51.5)
+scale = Vector2(0.108, 0.00566664)
+texture = ExtResource("2_dayfj")
+
+[node name="sill3" type="Sprite2D" parent="."]
+modulate = Color(0.956863, 0.956863, 0.956863, 1)
+position = Vector2(379.25, -162)
+scale = Vector2(0.00616666, 0.148)
+texture = ExtResource("2_dayfj")
+
+[node name="sill4" type="Sprite2D" parent="sill3"]
+modulate = Color(0.956863, 0.956863, 0.956863, 1)
+position = Vector2(49500, -57.4322)
+scale = Vector2(1.02703, 0.961712)
+texture = ExtResource("2_dayfj")
+
+[node name="sill2" type="Sprite2D" parent="."]
+modulate = Color(0.956863, 0.956863, 0.956863, 1)
+position = Vector2(532, -392)
+scale = Vector2(0.108, 0.00566664)
+texture = ExtResource("2_dayfj")
+
 [node name="castro" parent="." instance=ExtResource("3_o1oym")]
-position = Vector2(-377, 191)
+position = Vector2(-352, 163)
 
 [node name="cia" parent="." instance=ExtResource("2_17xij")]
 position = Vector2(416, 178)
@@ -60,7 +133,7 @@ offset_bottom = -421.0
 color = Color(0.643137, 0.176471, 0.215686, 1)
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("6_b8wt1")]
-position = Vector2(445, -167)
+position = Vector2(-1, 345)
 tx = 5
 level = NodePath("..")
 

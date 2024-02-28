@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3i4cepfmwlay"]
+[gd_scene load_steps=4 format=3 uid="uid://c3i4cepfmwlay"]
 
 [ext_resource type="Script" path="res://billboard.gd" id="1_afvjp"]
-[ext_resource type="Texture2D" uid="uid://0r6eghfk4bvt" path="res://art/temp_billboard.png" id="2_kgbyy"]
+[ext_resource type="Texture2D" uid="uid://c1hhur1glv27c" path="res://art/NEW_billboard.png" id="2_nlh6a"]
+[ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="3_edw4c"]
 
 [node name="billboard" type="Node2D"]
 script = ExtResource("1_afvjp")
@@ -12,6 +13,14 @@ script = ExtResource("1_afvjp")
 
 [node name="TempBillboard" type="Sprite2D" parent="."]
 position = Vector2(3, 0)
-texture = ExtResource("2_kgbyy")
+texture = ExtResource("2_nlh6a")
 hframes = 2
 frame = 1
+
+[node name="trees" parent="." instance=ExtResource("3_edw4c")]
+position = Vector2(-104, 104)
+scale = Vector2(0.2, 0.2)
+
+[node name="trees2" parent="." instance=ExtResource("3_edw4c")]
+position = Vector2(-59, 125)
+scale = Vector2(0.15, 0.15)

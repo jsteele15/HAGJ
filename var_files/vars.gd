@@ -16,6 +16,8 @@ var mission_list = ["res://levels/duck_mission.tscn",
 #"res://levels/dog_mission.tscn"
 var inbetween = "res://levels/speeding_up.tscn"
 
+var help_screen = "res://levels/help_screen.tscn"
+
 var main_menu = "res://levels/main.tscn"
 
 # Prints a random integer between -10 and 10.
@@ -30,6 +32,10 @@ var cur_speed = 0
 var speeds = [5, 4.5, 4, 3.5, 3, 2.5, 2, 1.5]
 var speed_times = [5, 6, 7, 7.5, 8, 9.5, 12, 17]
 var saved;
+
+#this is for keeping track of the high score
+var high_score = 0 
+
 
 func reset():
 	cur_level = 0
@@ -82,12 +88,3 @@ func lab_move(win_cond, label):
 func _input(event):
 	if event.is_action_pressed("exc"):
 		get_tree().quit()
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
