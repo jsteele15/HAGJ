@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bb864tmyeral1"]
 
 [ext_resource type="Script" path="res://shoe.gd" id="1_nlc02"]
-[ext_resource type="Texture2D" uid="uid://c5gypm265vhnp" path="res://art/shoes_temp.png" id="2_p8c2o"]
+[ext_resource type="Texture2D" uid="uid://d15y0m0uekctg" path="res://art/shoes.png" id="2_rvyhf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4aa4x"]
 radius = 101.079
@@ -11,14 +11,23 @@ script = ExtResource("1_nlc02")
 
 [node name="ShoesTemp" type="Sprite2D" parent="."]
 position = Vector2(1, -1)
-texture = ExtResource("2_p8c2o")
+texture = ExtResource("2_rvyhf")
 hframes = 2
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(7, -82)
+position = Vector2(-31, -85)
 shape = SubResource("CircleShape2D_4aa4x")
+
+[node name="Shoes" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.137255)
+position = Vector2(-60.633, 194)
+scale = Vector2(0.997867, 0.831381)
+skew = 0.680678
+texture = ExtResource("2_rvyhf")
+flip_v = true
+hframes = 2
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

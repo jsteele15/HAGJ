@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var game_vars = get_node("/root/Vars")
 var entered;
 var reached_dest;
 var alive = true;
@@ -13,7 +14,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if reached_dest != true and alive == true:
-		$".".position.x += 2
+		if game_vars.cur_speed != 0:
+			$".".position.x += 1 + game_vars.cur_speed
+		else:
+			$".".position.x += 2
 	if alive == false:
 		$Sprite2D.frame = 0
 		print("dead")

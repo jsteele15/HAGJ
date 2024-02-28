@@ -1,10 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://cojowxfjaym7m"]
+[gd_scene load_steps=3 format=3 uid="uid://cojowxfjaym7m"]
 
-[ext_resource type="Texture2D" uid="uid://cc3f27yiu6u65" path="res://art/duck_temp.png" id="1_7ckcj"]
+[ext_resource type="Script" path="res://char_files/duck.gd" id="1_yiim7"]
+[ext_resource type="Texture2D" uid="uid://crmhlg34gl75n" path="res://art/duck.png" id="2_k553t"]
 
 [node name="duck" type="Node2D"]
+script = ExtResource("1_yiim7")
 
 [node name="DuckTemp" type="Sprite2D" parent="."]
 position = Vector2(0, 1)
 scale = Vector2(2, 2)
-texture = ExtResource("1_7ckcj")
+texture = ExtResource("2_k553t")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

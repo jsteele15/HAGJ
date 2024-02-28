@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://xax48hj3biwh"]
+[gd_scene load_steps=13 format=3 uid="uid://xax48hj3biwh"]
 
 [ext_resource type="Script" path="res://levels/duck_mission.gd" id="1_e83kr"]
 [ext_resource type="PackedScene" uid="uid://bkpivysxlc0dn" path="res://char_files/trees.tscn" id="2_1m06r"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="6_m2638"]
 [ext_resource type="PackedScene" uid="uid://drgildw4smgq1" path="res://char_files/explosion.tscn" id="10_17h0g"]
 [ext_resource type="AudioStream" uid="uid://citev5pcj0no5" path="res://sounds/bang.wav" id="11_ki4hl"]
+[ext_resource type="Texture2D" uid="uid://bbi16ondvpxfu" path="res://art/cross.png" id="12_6djv4"]
 
 [node name="duck_mission" type="Node2D"]
 script = ExtResource("1_e83kr")
@@ -77,13 +78,14 @@ fra = 3
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="blood_wall" parent="." instance=ExtResource("2_y5skw")]
-position = Vector2(-7, -173)
+position = Vector2(-11, -138)
 
 [node name="castro" parent="." instance=ExtResource("2_311nx")]
-position = Vector2(-6, -67)
+position = Vector2(-6, -26)
 
 [node name="duck" parent="." instance=ExtResource("3_7408n")]
 visible = false
+scale = Vector2(0.3, 0.3)
 
 [node name="winTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -111,6 +113,10 @@ level = NodePath("..")
 [node name="score_board" parent="." instance=ExtResource("5_q0kvg")]
 position = Vector2(0, -400)
 
+[node name="Cross" type="Sprite2D" parent="."]
+position = Vector2(-5, -62)
+texture = ExtResource("12_6djv4")
+
 [node name="lose label" parent="." instance=ExtResource("6_m2638")]
 position = Vector2(0, 820)
 
@@ -119,6 +125,8 @@ position = Vector2(-1, -60)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("11_ki4hl")
+volume_db = -10.091
+pitch_scale = 1.5
 
 [connection signal="timeout" from="winTimer" to="." method="_on_win_timer_timeout"]
 [connection signal="timeout" from="lvTimer" to="." method="_on_lv_timer_timeout"]

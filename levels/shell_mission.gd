@@ -1,29 +1,48 @@
 extends Node2D
 
 @onready var game_vars = get_node("/root/Vars")
-
+var random = RandomNumberGenerator.new()
 var win_cond;
 var fired;
 var sound_fired;
+var rand_num;
+var start_loc = [[-360, -347], [100, -376], [700, -315], [300, -87]]
 
+var chosen;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_vars.change_speed($lvTimer)
 	$time_rect.position.y = get_viewport().size[1]/2-30
+	random.randomize()
+	
+	rand_num = random.randi_range(0, 3)
+
+	$bomb.position.x = start_loc[rand_num][0]
+	$bomb.position.y = start_loc[rand_num][1]
+	
 
 func level_over():
 	game_vars.next_level()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	game_vars.lab_move(win_cond, $"lose label")
 	
-	if $shells4.collected == true and fired != true:
-		win_cond = false
-		fired = true
-		$shells4.position.y -= 20
-		$shells4.position.x -= 20
-		$shells4.rotation_degrees += 5
+	if win_cond != null:
+		$level_text.visible = false
+	
+	for i in [[$shells, 0], [$shells2, 1], [$shells3, 2], [$shells4, 3]]:
+		if i[1] == rand_num:
+			i[0].explosive = 1
+			if i[0].collected == true and fired != true:
+				win_cond = false
+				fired = true
+				i[0].position.y -= 20
+				i[0].position.x -= 20
+				i[0].rotation_degrees += 5
+		else:
+			i[0].explosive = 0
+		
 	
 	if win_cond == true and fired != true:
 		game_vars.change_score_and_timers($lvTimer, $winTimer, $score_board)
@@ -39,10 +58,10 @@ func _process(delta):
 			$explosion.emitting = true
 			sound_fired = true
 		
-		if $shells4.collected != true:
-			$shells4.position.y -= 20
-			$shells4.position.x -= 20
-			$shells4.rotation_degrees += 5
+		#if $shells4.collected != true:
+			#$shells4.position.y -= 20
+			#$shells4.position.x -= 20
+			#$shells4.rotation_degrees += 5
 			
 
 	

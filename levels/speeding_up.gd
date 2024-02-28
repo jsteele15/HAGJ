@@ -14,4 +14,4 @@ func _process(delta):
 
 func _input(event):
 	if event.is_action_pressed("left_click"):
-		game_vars.next_level()
+		get_tree().change_scene_to_file(game_vars.mission_list[game_vars.cur_level])

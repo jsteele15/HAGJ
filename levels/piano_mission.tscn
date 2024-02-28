@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ch5nlvslekskw"]
+[gd_scene load_steps=14 format=3 uid="uid://ch5nlvslekskw"]
 
 [ext_resource type="PackedScene" uid="uid://jlnmshhagf0v" path="res://char_files/piano.tscn" id="1_lsy81"]
 [ext_resource type="Script" path="res://levels/piano_mission.gd" id="1_ptlm5"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cwn0od8c4ie8j" path="res://char_files/score_board.tscn" id="7_vrqh7"]
 [ext_resource type="PackedScene" uid="uid://f7lcieg80ccc" path="res://levels/lose_label.tscn" id="8_cj36d"]
 [ext_resource type="PackedScene" uid="uid://b3ynhnjgf0guc" path="res://char_files/blood_floor.tscn" id="9_faf0s"]
+[ext_resource type="Texture2D" uid="uid://dsxqhrtjjwkhw" path="res://art/hook.png" id="12_3usc5"]
+[ext_resource type="Texture2D" uid="uid://gfl7h2wwhk56" path="res://art/warning.png" id="13_ct0hs"]
 
 [node name="piano_mission" type="Node2D"]
 script = ExtResource("1_ptlm5")
@@ -93,6 +95,37 @@ position = Vector2(-352, 163)
 
 [node name="cia" parent="." instance=ExtResource("2_17xij")]
 position = Vector2(416, 178)
+
+[node name="Backdrop3" type="Sprite2D" parent="."]
+modulate = Color(0.631373, 0.823529, 1, 1)
+position = Vector2(49, -91)
+scale = Vector2(0.084, 0.103667)
+texture = ExtResource("2_dayfj")
+
+[node name="Hook" type="Sprite2D" parent="."]
+position = Vector2(49, -94)
+texture = ExtResource("12_3usc5")
+
+[node name="Warning" type="Sprite2D" parent="Hook"]
+position = Vector2(-8, -6)
+texture = ExtResource("13_ct0hs")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Hook/Warning"]
+modulate = Color(0, 0, 0, 1)
+offset_left = -83.0
+offset_top = 88.0
+offset_right = 121.0
+offset_bottom = 146.0
+text = "HOOKS ARE COUNTER REVOLUTIONARY"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Hook/Warning"]
+offset_left = -63.0
+offset_top = -116.0
+offset_right = 58.0
+offset_bottom = -14.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+text = "ATTENTION!!!"
+tab_size = 24
 
 [node name="castro_rope" type="Line2D" parent="."]
 points = PackedVector2Array(-304, -449, -303, -184)

@@ -28,7 +28,7 @@ func _process(delta):
 		if fired2 == null:
 			$level_text.visible = false
 			#might add gun shot later
-			#$AudioStreamPlayer2D.play()
+			$AudioStreamPlayer2D.play()
 			fired2 = true
 			
 	
@@ -38,6 +38,8 @@ func _process(delta):
 		$castro.position.y += 10
 		$castro.rotation += 0.02
 		$blood_wall.emitting = true
+	
+	
 		
 	if duck_drop == false:
 		
@@ -49,12 +51,15 @@ func _process(delta):
 			#eventually this will be an animation, but right now it just moves castros head by 200 px
 			#depending on where the duck gets dropped
 			$castro.position.x += 200
+			$duck.set_dir("right")
 			fired = true
 		else:
 			$castro.position.x -= 200
+			$duck.set_dir("left")
 			fired = true
 	if win_cond == false:
 		game_vars.music_player.turn_down()
+		
 	
 	if duck_drop == true and $duck.position.y <= 260:
 		$duck.position.y += 10

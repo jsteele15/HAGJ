@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cjwrtkainyn"]
 
 [ext_resource type="Script" path="res://shells.gd" id="1_rp83m"]
-[ext_resource type="Texture2D" uid="uid://co4xm38xfvfk7" path="res://art/temp_shell.png" id="2_lnvg0"]
+[ext_resource type="Texture2D" uid="uid://dg10cxki0hcy0" path="res://art/shells.png" id="2_0js2d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dyxcn"]
 radius = 224.589
@@ -15,7 +15,7 @@ script = ExtResource("1_rp83m")
 shape = SubResource("CircleShape2D_dyxcn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_lnvg0")
+texture = ExtResource("2_0js2d")
 hframes = 5
 
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

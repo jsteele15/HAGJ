@@ -28,18 +28,18 @@ position = Vector2(-360, -347)
 position = Vector2(17, -35)
 
 [node name="shells" parent="." instance=ExtResource("1_s104t")]
-position = Vector2(-352, 258)
+position = Vector2(-443, -226)
 
 [node name="shells2" parent="." instance=ExtResource("1_s104t")]
-position = Vector2(303, 279)
+position = Vector2(-4, -277)
 ind = 1
 
 [node name="shells3" parent="." instance=ExtResource("1_s104t")]
-position = Vector2(226, -304)
+position = Vector2(602, -330)
 ind = 2
 
 [node name="shells4" parent="." instance=ExtResource("1_s104t")]
-position = Vector2(-443, -255)
+position = Vector2(329, 43)
 ind = 3
 explosive = 1
 
@@ -61,7 +61,7 @@ wait_time = 0.041
 autostart = true
 
 [node name="level_text" parent="." node_paths=PackedStringArray("level") instance=ExtResource("4_3nslb")]
-position = Vector2(3, -4)
+position = Vector2(-2, 343)
 tx = 8
 level = NodePath("..")
 

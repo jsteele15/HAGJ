@@ -21,6 +21,7 @@ func _input(event):
 		if entered == true:
 			game_vars.music_player.return_vol()
 			game_vars.reset()
+			game_vars.mission_list.shuffle()
 			game_vars.next_level()
 
 func _on_area_2d_mouse_entered():

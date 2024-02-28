@@ -11,7 +11,6 @@ var mission_list = ["res://levels/duck_mission.tscn",
 	"res://levels/podium_mission.tscn",
 	"res://levels/shell_mission.tscn",
 	"res://levels/baseball_mission.tscn"
-	
 	]
 #"res://levels/dog_mission.tscn"
 var inbetween = "res://levels/speeding_up.tscn"
@@ -35,7 +34,6 @@ var saved;
 
 #this is for keeping track of the high score
 var high_score = 0 
-
 
 func reset():
 	cur_level = 0
@@ -66,16 +64,19 @@ func rand_num_gen():
 		return n
 	
 func next_level():
-	cur_level += 1
+	if cur_level + 1 == len(mission_list):
+		cur_level = 0
+	else:	
+		cur_level += 1
 
-	if cur_level/cur_div == 4 and cur_speed < len(speeds)-1:
+	if cur_level == 4 or cur_level == 8:
 		get_tree().change_scene_to_file(inbetween)
 		cur_div += 1
-		cur_speed += 1
+		if cur_speed < len(speeds)-1:
+			cur_speed += 1
 	else:
 		nl = rand_num_gen()
-		
-		get_tree().change_scene_to_file(mission_list[nl])
+		get_tree().change_scene_to_file(mission_list[cur_level])
 		
 	
 

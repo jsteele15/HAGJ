@@ -30,10 +30,11 @@ func _process(delta):
 				$top_rope.points[1].x += 15
 				$piano.position.y += 10
 				$piano.position.x += 15
-				print($piano.position.x, $cia.position.x)
+				
 				if $cia.position.x - $piano.position.x <= 20:
 					$cia.position.x += 15
 					$cia.rotation += 0.04
+				
 	
 	if win_cond == false and crash != true and hook_chose != true:
 		if $piano.position.y <= $castro.position.y - 50:
@@ -47,7 +48,7 @@ func _process(delta):
 	if win_cond == false and crash != true and hook_chose == true:
 		
 		if fired != true:
-			print($top_rope.points[0].y)
+			
 			$cia_rope.points[1].x = $top_rope.points[1].x
 			$top_rope.visible = false
 			fired = true
