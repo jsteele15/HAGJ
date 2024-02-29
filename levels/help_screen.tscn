@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cp1i1md7mrl33"]
+[gd_scene load_steps=13 format=3 uid="uid://cp1i1md7mrl33"]
 
 [ext_resource type="Script" path="res://levels/help_screen.gd" id="1_57ocl"]
 [ext_resource type="Texture2D" uid="uid://2cbvyjianobp" path="res://art/intro_text.png" id="1_rjaae"]
@@ -7,9 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://di3k0l1p7frue" path="res://art/help.png" id="3_qciba"]
 [ext_resource type="PackedScene" uid="uid://cyt0y05r448k1" path="res://char_files/left_hand.tscn" id="4_c0wxf"]
 [ext_resource type="PackedScene" uid="uid://cl6mgux20a7xj" path="res://char_files/beer.tscn" id="6_slovl"]
-[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="7_5jgkc"]
 [ext_resource type="Texture2D" uid="uid://vrcbwsr7g1to" path="res://art/menu_buttons_sheet.png" id="8_j55t2"]
 [ext_resource type="PackedScene" uid="uid://ohddgv0py3sg" path="res://char_files/fire.tscn" id="10_83dxm"]
+[ext_resource type="PackedScene" uid="uid://b8ofmiyv57c8" path="res://char_files/hook.tscn" id="11_ihgi1"]
+[ext_resource type="PackedScene" uid="uid://0ge0355cdx55" path="res://char_files/cia.tscn" id="11_ug8kc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ruykn"]
 size = Vector2(1069, 205)
@@ -35,7 +36,7 @@ position = Vector2(10, -140)
 texture = ExtResource("1_rjaae")
 
 [node name="LeftHand" parent="." instance=ExtResource("4_c0wxf")]
-position = Vector2(-403, 260)
+position = Vector2(-343, 259)
 scale = Vector2(0.3, 0.3)
 
 [node name="fire" parent="LeftHand" instance=ExtResource("10_83dxm")]
@@ -65,13 +66,8 @@ position = Vector2(0, 307)
 texture = ExtResource("3_qciba")
 
 [node name="beer" parent="." instance=ExtResource("6_slovl")]
-position = Vector2(-1, 226)
-scale = Vector2(0.3, 0.3)
-
-[node name="CiaHead" type="Sprite2D" parent="."]
-position = Vector2(403, 221)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("7_5jgkc")
+position = Vector2(0, 207)
+scale = Vector2(0.6, 0.6)
 
 [node name="behind_play" type="Sprite2D" parent="."]
 position = Vector2(-0.999992, 441)
@@ -92,6 +88,13 @@ position = Vector2(0, 2)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MenuButtonsSheet/Area2Dstart"]
 position = Vector2(1.5, -3.5)
 shape = SubResource("RectangleShape2D_ruykn")
+
+[node name="hook" parent="." instance=ExtResource("11_ihgi1")]
+position = Vector2(-458, 228)
+
+[node name="CiaHead" parent="." instance=ExtResource("11_ug8kc")]
+position = Vector2(406, 227)
+scale = Vector2(0.9, 0.9)
 
 [connection signal="mouse_entered" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_entered"]
 [connection signal="mouse_exited" from="MenuButtonsSheet/Area2Dstart" to="." method="_on_area_2_dstart_mouse_exited"]

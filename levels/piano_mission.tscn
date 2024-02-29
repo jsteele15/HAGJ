@@ -128,24 +128,25 @@ text = "ATTENTION!!!"
 tab_size = 24
 
 [node name="castro_rope" type="Line2D" parent="."]
-points = PackedVector2Array(-304, -449, -303, -184)
+points = PackedVector2Array(-302, -377, -303, -184)
 default_color = Color(0.717647, 0.611765, 0.372549, 1)
 
 [node name="piano" parent="." instance=ExtResource("1_lsy81")]
-position = Vector2(-285, -193)
+position = Vector2(-280, -154)
 
 [node name="hook" parent="." instance=ExtResource("5_qck2f")]
-position = Vector2(-287, -458)
+position = Vector2(-293, -380)
 
 [node name="top_rope" type="Line2D" parent="."]
-points = PackedVector2Array(296, -449, -310, -453)
+position = Vector2(8, 76)
+points = PackedVector2Array(286, -453, -316, -452)
 default_color = Color(0.717647, 0.611765, 0.372549, 1)
 
 [node name="hook2" parent="." instance=ExtResource("5_qck2f")]
-position = Vector2(296, -454)
+position = Vector2(288, -378)
 
 [node name="cia_rope" type="Line2D" parent="."]
-points = PackedVector2Array(294, 263, 293, -453)
+points = PackedVector2Array(294, 263, 289, -380)
 default_color = Color(0.717647, 0.611765, 0.372549, 1)
 
 [node name="lvTimer" type="Timer" parent="."]

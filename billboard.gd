@@ -1,7 +1,7 @@
 extends Node2D
 
 @export var bill = 0
-var destination = 6000;
+var destination = 6200;
 var left;
 var right;
 var right_fired;

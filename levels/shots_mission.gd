@@ -8,6 +8,7 @@ var fired;
 func _ready():
 	game_vars.change_speed($lvTimer)
 	$time_rect.position.y = get_viewport().size[1]/2-30
+	$level_text.position.y = get_viewport().size[1]/2-30-100
 
 
 # Called every frame 'delta' is the elapsed time since the previous frame.

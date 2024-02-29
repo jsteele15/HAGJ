@@ -8,6 +8,7 @@ var shoes_untied = 0
 var fired_music;
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$level_text.position.y = get_viewport().size[1]/2-30-100
 	game_vars.change_speed($lvTimer)
 	$time_rect.position.y = get_viewport().size[1]/2-30
 	

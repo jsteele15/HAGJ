@@ -10,6 +10,7 @@ var fired;
 func _ready():
 	game_vars.change_speed($lvTimer)
 	$time_rect.position.y = get_viewport().size[1]/2-30
+	$level_text.position.y = get_viewport().size[1]/2-30-100
 
 func level_over():
 	
@@ -19,7 +20,7 @@ func level_over():
 func _process(delta):
 	game_vars.lab_move(win_cond, $"lose label")
 	
-	for b in [$billboard, $billboard2]:
+	for b in [$billboard]:
 		if $stand.destroyed == true:
 			b.left = true
 			b.destination = get_viewport().size[1]/2-400

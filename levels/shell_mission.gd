@@ -13,6 +13,7 @@ var chosen;
 func _ready():
 	game_vars.change_speed($lvTimer)
 	$time_rect.position.y = get_viewport().size[1]/2-30
+	$level_text.position.y = get_viewport().size[1]/2-30-100
 	random.randomize()
 	
 	rand_num = random.randi_range(0, 3)

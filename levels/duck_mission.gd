@@ -10,9 +10,9 @@ var fired2;
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	game_vars.change_speed($lvTimer)
-	
+	$level_text.position.y = get_viewport().size[1]/2-30-100
 	$time_rect.position.y = get_viewport().size[1]/2-30
-	print(get_viewport().size[1])
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

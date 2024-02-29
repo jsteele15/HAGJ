@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bikw1jy65em7m"]
+
+[ext_resource type="Texture2D" uid="uid://chjkwk7pl54ad" path="res://art/ss.png" id="1_nnfo4"]
+[ext_resource type="Texture2D" uid="uid://df1nt6wl3w4d6" path="res://art/cia_head.png" id="2_3cceg"]
+[ext_resource type="Texture2D" uid="uid://c1pd4ad58vu8s" path="res://art/trees.png" id="3_46agu"]
+[ext_resource type="Texture2D" uid="uid://bcax77gcssywg" path="res://art/boards.png" id="4_54idp"]
+[ext_resource type="Texture2D" uid="uid://b5q3ju3fvvkjh" path="res://art/head.png" id="5_w7u0v"]
+[ext_resource type="Texture2D" uid="uid://bbi16ondvpxfu" path="res://art/cross.png" id="5_ww0xx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ss" type="Sprite2D" parent="."]
+modulate = Color(0.505882, 0.72549, 0.976471, 1)
+position = Vector2(312, 246)
+texture = ExtResource("1_nnfo4")
+
+[node name="Camera2D" type="Camera2D" parent="Ss"]
+position = Vector2(22, 4)
+
+[node name="CiaHead" type="Sprite2D" parent="."]
+position = Vector2(395, 252)
+rotation = 0.418879
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_3cceg")
+
+[node name="Trees" type="Sprite2D" parent="."]
+position = Vector2(466, 304)
+rotation = -0.0977384
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_46agu")
+hframes = 4
+frame = 1
+
+[node name="Boards" type="Sprite2D" parent="."]
+position = Vector2(175, 378)
+scale = Vector2(0.601667, 0.461194)
+texture = ExtResource("4_54idp")
+
+[node name="Boards2" type="Sprite2D" parent="."]
+position = Vector2(536, 378)
+scale = Vector2(0.601667, 0.461194)
+texture = ExtResource("4_54idp")
+
+[node name="Trees2" type="Sprite2D" parent="."]
+position = Vector2(168, 286)
+rotation = -0.00174533
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_46agu")
+hframes = 4
+
+[node name="Head" type="Sprite2D" parent="."]
+position = Vector2(232, 342)
+rotation = -0.392699
+scale = Vector2(1.29368, 1.33861)
+texture = ExtResource("5_w7u0v")
+
+[node name="Ss2" type="Sprite2D" parent="."]
+modulate = Color(0.901961, 0.815686, 0.576471, 1)
+position = Vector2(313, 476)
+scale = Vector2(1, 0.084)
+texture = ExtResource("1_nnfo4")
+
+[node name="Cross" type="Sprite2D" parent="."]
+position = Vector2(409, 391)
+texture = ExtResource("5_ww0xx")

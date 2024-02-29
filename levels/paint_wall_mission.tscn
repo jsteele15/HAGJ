@@ -81,10 +81,6 @@ position = Vector2(-1191, 175)
 scale = Vector2(1, 0.843284)
 texture = ExtResource("2_3rvrl")
 
-[node name="billboard2" parent="." instance=ExtResource("1_xtg8a")]
-visible = false
-position = Vector2(-10, -235)
-
 [node name="lvTimer" type="Timer" parent="."]
 wait_time = 5.0
 
